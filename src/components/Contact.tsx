@@ -1,0 +1,63 @@
+import { MapPin, Mail, MessageCircle } from 'lucide-react';
+
+export default function Contact() {
+  const whatsappNumber = '6281234567890';
+  const whatsappMessage = encodeURIComponent('Halo Admin, saya ingin bertanya mengenai parfum.');
+
+  return (
+    <section className="py-5 pb-6">
+      <div className="container mx-auto px-4">
+        <h2 className="section-title mb-4">Contact</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-7 gap-4">
+          <div className="lg:col-span-4">
+            <div className="contact-card p-4 h-full">
+              <div className="flex items-start mb-3">
+                <MapPin className="contact-icon mr-2 shrink-0" />
+                <div>
+                  <div className="fw-semibold">Alamat</div>
+                  <div className="text-muted">Jakarta, Indonesia</div>
+                </div>
+              </div>
+              
+              <div className="flex items-start mb-3">
+                <Mail className="contact-icon mr-2 shrink-0" />
+                <div>
+                  <div className="fw-semibold">Email</div>
+                  <div className="text-muted">info@chelseadewaperfume.com</div>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <MessageCircle className="contact-icon mr-2 shrink-0" />
+                <div>
+                  <div className="fw-semibold">WhatsApp</div>
+                  <div className="text-muted">+62 812-3456-7890</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="lg:col-span-3">
+            <div className="contact-card p-4 h-full d-flex flex-column justify-content-between">
+              <div>
+                <h5 className="mb-2">Butuh Bantuan?</h5>
+                <p className="text-muted mb-4">Hubungi kami kapan saja melalui WhatsApp, kami siap membantu.</p>
+              </div>
+              <div className="d-grid">
+                <a
+                  className="btn btn-gold btn-lg"
+                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="w-5 h-5 inline mr-2" />
+                  Chat WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

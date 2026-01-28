@@ -1,0 +1,366 @@
+@import "tailwindcss";
+
+:root {
+  --gold: #d4af37;
+  --ink: #111111;
+  --paper: #ffffff;
+  --muted: #6b7280;
+  --soft: #f7f7f9;
+  --line: #ececf0;
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Custom styles for perfume website */
+.hero-light {
+  background: linear-gradient(0deg, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.10) 20%, rgba(212,175,55,0.05) 40%, rgba(212,175,55,0.02) 60%, transparent 80%),
+              linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  color: var(--ink);
+  padding: 60px 0 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .hero-light { 
+    padding: 48px 0 32px; 
+  }
+}
+
+.hero-light h1 { 
+  font-weight: 800; 
+  letter-spacing: 0.3px; 
+  line-height: 1.15; 
+}
+
+.hero-light .lead { 
+  color: var(--muted); 
+}
+
+.hero-image {
+  border-radius: 18px;
+  background: linear-gradient(180deg, #f3f4f6, #ffffff);
+  height: 360px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 768px) {
+  .hero-image { 
+    height: 240px; 
+    border-radius: 12px; 
+  }
+}
+
+.hero-carousel {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: auto;
+  right: auto;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.carousel-dot.active {
+  background: var(--gold);
+  width: 24px;
+  border-radius: 4px;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: #1a1a1a;
+  border: none;
+}
+
+.btn-gold:hover { 
+  background: #f0d785; 
+  color: #1a1a1a; 
+}
+
+.btn-outline-gold {
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+
+.btn-outline-gold:hover { 
+  background: rgba(212,175,55,0.12); 
+  color: var(--gold); 
+}
+
+.btn-gold, .btn-outline-gold { 
+  border-radius: 999px; 
+  padding: 8px 16px; 
+  font-size: 0.85rem; 
+}
+
+.section-title { 
+  font-weight: 700; 
+  letter-spacing: .3px; 
+}
+
+.section-subtitle { 
+  color: var(--gold); 
+  text-transform: uppercase; 
+  letter-spacing: .18em; 
+  font-size: .8rem; 
+}
+
+.feature-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .feature-card { 
+    padding: 16px; 
+  }
+}
+
+.feature-icon { 
+  color: var(--gold); 
+  font-size: 28px; 
+  width: 36px; 
+}
+
+.cat-tile {
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(212,175,55,0.15);
+  background: #f3f4f6;
+  height: 220px;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+@media (max-width: 768px) {
+  .cat-tile { 
+    height: 180px; 
+    border-radius: 12px; 
+  }
+}
+
+.cat-tile img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  display: block; 
+  transition: transform .45s ease; 
+}
+
+.cat-tile .overlay { 
+  position: absolute; 
+  inset: 0; 
+  background: linear-gradient(0deg, rgba(0,0,0,0.45), rgba(0,0,0,0)); 
+}
+
+.cat-tile .label { 
+  position: absolute; 
+  left: 16px; 
+  bottom: 12px; 
+  color: #fff; 
+  font-weight: 700; 
+}
+
+.cat-tile:hover { 
+  transform: translateY(-4px); 
+  box-shadow: 0 12px 26px rgba(0,0,0,0.12); 
+  border-color: rgba(212,175,55,0.35); 
+}
+
+.cat-tile:hover img { 
+  transform: scale(1.05); 
+}
+
+.product-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  height: 100%;
+}
+
+.product-card:hover { 
+  transform: translateY(-4px); 
+  box-shadow: 0 10px 24px rgba(0,0,0,.10); 
+  border-color: rgba(212,175,55,0.3); 
+}
+
+.product-media { 
+  position: relative; 
+  height: 280px; 
+  border-radius: 12px; 
+  overflow: hidden; 
+  background: #f3f4f6; 
+}
+
+@media (max-width: 768px) {
+  .product-media { 
+    height: 220px; 
+    border-radius: 10px; 
+  }
+}
+
+.product-media img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  display: block; 
+}
+
+.product-media .placeholder { 
+  width: 100%; 
+  height: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  color: var(--muted); 
+}
+
+.product-price { 
+  color: var(--gold); 
+  font-weight: 700; 
+}
+
+.product-category { 
+  color: var(--muted); 
+  font-size: .9rem; 
+}
+
+.faq-acc .accordion-item { 
+  background: var(--paper); 
+  border: 1px solid var(--line); 
+  color: var(--ink); 
+}
+
+.faq-acc .accordion-button { 
+  background: var(--paper); 
+  color: var(--ink); 
+}
+
+.faq-acc .accordion-button:not(.collapsed) { 
+  box-shadow: inset 0 -1px 0 rgba(212,175,55,0.2); 
+  color: var(--gold); 
+}
+
+.faq-acc .accordion-button:focus { 
+  box-shadow: 0 0 0 .1rem rgba(212,175,55,0.25); 
+}
+
+.contact-card { 
+  background: var(--paper); 
+  border: 1px solid var(--line); 
+  border-radius: 14px; 
+}
+
+@media (max-width: 768px) {
+  .contact-card { 
+    border-radius: 12px; 
+  }
+}
+
+.contact-list li { 
+  color: var(--muted); 
+}
+
+.contact-icon { 
+  color: var(--gold); 
+  width: 22px; 
+}
+
+a, .link-gold { 
+  color: var(--gold); 
+}
+
+/* Custom grid for 5 columns */
+@media (min-width: 992px) {
+  .col-lg-2-4 {
+    flex: 0 0 auto;
+    width: 20%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-xl-2-4 {
+    flex: 0 0 auto;
+    width: 20%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .col-md-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .display-5 { 
+    font-size: 2rem; 
+  }
+  
+  .section-title { 
+    font-size: 1.4rem; 
+  }
+  
+  .btn-gold, .btn-outline-gold { 
+    padding: 6px 12px; 
+    font-size: 0.8rem; 
+  }
+}
