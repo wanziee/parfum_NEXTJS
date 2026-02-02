@@ -9,12 +9,12 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <div className="flex items-center mb-4">
-              <div className="w-8 h-8 bg-#d4af37 rounded-full flex items-center justify-center mr-3">
-                <span className="text-#1a1d23 font-bold text-sm">CD</span>
+              <div className="w-8 h-8 bg-[#d4af37] rounded-full flex items-center justify-center mr-3">
+                <span className="text-[#1a1d23] font-bold text-sm">CD</span>
               </div>
               <span className="font-bold text-xl">Chelsea Dewa</span>
             </div>
-            <p className="text-#6b7280 mb-4">
+            <p className="text-[#6b7280] mb-4">
               Koleksi parfum pilihan dengan kualitas premium. Sentuhan elegan untuk setiap momen.
             </p>
             <div className="flex space-x-4">
@@ -22,7 +22,7 @@ export default function Footer() {
                 href="https://instagram.com/chelseadewaperfume" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-#6b7280 hover:text-#d4af37 transition-colors"
+                className="text-[#6b7280] hover:text-[#d4af37] transition-colors"
               >
                 <Instagram className="w-5 h-5" />
               </a>
@@ -30,7 +30,7 @@ export default function Footer() {
                 href="https://www.tiktok.com/@chelseadewaperfume" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-#6b7280 hover:text-#d4af37 transition-colors"
+                className="text-[#6b7280] hover:text-[#d4af37] transition-colors"
               >
                 <Twitter className="w-5 h-5" />
               </a>
@@ -38,7 +38,7 @@ export default function Footer() {
                 href="https://shopee.co.id/chelseadewaperfume" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-#6b7280 hover:text-#d4af37 transition-colors"
+                className="text-[#6b7280] hover:text-[#d4af37] transition-colors"
               >
                 <ShoppingBag className="w-5 h-5" />
               </a>
@@ -104,20 +104,20 @@ export default function Footer() {
             <h3 className="font-semibold text-lg mb-4">Kontak & Social</h3>
             <div className="space-y-3">
               <div className="flex items-center">
-                <MapPin className="w-5 h-5 text-#d4af37 mr-3" />
-                <span className="text-#6b7280">Jakarta, Indonesia</span>
+                <MapPin className="w-5 h-5 text-[#d4af37] mr-3" />
+                <span className="text-[#6b7280]">Jakarta, Indonesia</span>
               </div>
               <div className="flex items-center">
-                <Mail className="w-5 h-5 text-#d4af37 mr-3" />
-                <span className="text-#6b7280">info@chelseadewaperfume.com</span>
+                <Mail className="w-5 h-5 text-[#d4af37] mr-3" />
+                <span className="text-[#6b7280]">info@chelseadewaperfume.com</span>
               </div>
               <div className="flex items-center">
-                <MessageCircle className="w-5 h-5 text-#d4af37 mr-3" />
+                <MessageCircle className="w-5 h-5 text-[#d4af37] mr-3" />
                 <a 
                   href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20bertanya%20mengenai%20parfum."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-#6b7280 hover:text-#d4af37 transition-colors"
+                  className="text-[#6b7280] hover:text-[#d4af37] transition-colors"
                 >
                   +62 812-3456-7890
                 </a>
@@ -160,19 +160,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-#2f3336 mt-8 pt-8">
+        <div className="border-t border-[#2f3336] mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-#6b7280 text-sm">
+            <p className="text-[#6b7280] text-sm">
               2025 Chelsea Dewa Perfume. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy" className="text-#6b7280 hover:text-#d4af37 transition-colors text-sm">
+              <Link href="/privacy" className="text-[#6b7280] hover:text-[#d4af37] transition-colors text-sm">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-#6b7280 hover:text-#d4af37 transition-colors text-sm">
+              <Link href="/terms" className="text-[#6b7280] hover:text-[#d4af37] transition-colors text-sm">
                 Terms of Service
               </Link>
-              <Link href="/shipping" className="text-#6b7280 hover:text-#d4af37 transition-colors text-sm">
+              <Link href="/shipping" className="text-[#6b7280] hover:text-[#d4af37] transition-colors text-sm">
                 Shipping Info
               </Link>
             </div>

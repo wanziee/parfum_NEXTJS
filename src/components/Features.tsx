@@ -32,8 +32,9 @@ export default function Features() {
             <div key={index} className="feature-card flex gap-3 items-start">
               {feature.icon}
               <div>
-                <div className="fw-semibold">{feature.title}</div>
-                <div className="text-muted small">{feature.description}</div>
+                <div className="font-bold">{feature.title}</div>
+                <div className="font-light
+                ">{feature.description}</div>
               </div>
             </div>
           ))}
