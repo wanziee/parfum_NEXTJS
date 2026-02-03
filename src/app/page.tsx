@@ -59,6 +59,30 @@ const featuredProducts = [
     price: 280000,
     category: "Oriental",
     image: "/images/products/oriental-spice.jpg"
+  },
+  {
+    id: 6,
+    name: "Sweet Vanilla",
+    slug: "sweet-vanilla",
+    price: 165000,
+    category: "Sweet",
+    image: "/images/products/sweet-vanilla.jpg"
+  },
+  {
+    id: 7,
+    name: "Ocean Breeze",
+    slug: "ocean-breeze",
+    price: 195000,
+    category: "Fresh",
+    image: "/images/products/ocean-breeze.jpg"
+  },
+  {
+    id: 8,
+    name: "Midnight Rose",
+    slug: "midnight-rose",
+    price: 320000,
+    category: "Floral",
+    image: "/images/products/midnight-rose.jpg"
   }
 ];
 
@@ -103,7 +127,7 @@ export default function Home() {
             </div>
             <a href="/products" className="text-[#d4af37] hover:text-[#f0d785] font-medium transition-colors">Lihat semua</a>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

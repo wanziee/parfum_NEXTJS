@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import StructuredData from "@/components/StructuredData";
+import { CartProvider } from "@/contexts/CartContext";
+import Cart from "@/components/Cart";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -84,12 +87,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id">
+      <head>
+        <StructuredData type="organization" />
+        <StructuredData type="website" />
+      </head>
       <body
         className={`${inter.variable} font-sans antialiased`}
       >
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <CartProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <Cart />
+        </CartProvider>
       </body>
     </html>
   );

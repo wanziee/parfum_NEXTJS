@@ -1,44 +1,39 @@
 import Link from 'next/link';
-import { MapPin, Mail, MessageCircle, Facebook, Instagram, Twitter, ShoppingBag } from 'lucide-react';
+import { MapPin, Mail, MessageCircle, Instagram, ShoppingBag } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div>
+    <footer className="bg-gray-900 text-white">
+      <div className="container mx-auto px-4 py-8 sm:py-12">
+        {/* Main Content */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {/* Brand */}
+          <div className="lg:col-span-1">
             <div className="flex items-center mb-4">
-              <div className="w-8 h-8 bg-[#d4af37] rounded-full flex items-center justify-center mr-3">
-                <span className="text-[#1a1d23] font-bold text-sm">CD</span>
+              <div className="w-10 h-10 bg-[#d4af37] rounded-lg flex items-center justify-center mr-3">
+                <span className="text-gray-900 font-bold text-lg">CD</span>
               </div>
               <span className="font-bold text-xl">Chelsea Dewa</span>
             </div>
-            <p className="text-[#6b7280] mb-4">
-              Koleksi parfum pilihan dengan kualitas premium. Sentuhan elegan untuk setiap momen.
+            <p className="text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">
+              Koleksi parfum premium dengan kualitas terbaik. Sentuhan elegan untuk setiap momen Anda.
             </p>
-            <div className="flex space-x-4">
+            
+            {/* Social Media */}
+            <div className="flex space-x-3">
               <a 
-                href="https://instagram.com/chelseadewaperfume" 
+                href="https://instagram.com/chelseadewastoreparfume" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-[#6b7280] hover:text-[#d4af37] transition-colors"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-[#d4af37] hover:bg-gray-700 transition-all duration-300"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a 
-                href="https://www.tiktok.com/@chelseadewaperfume" 
+                href="https://shopee.co.id/chelseadewastoreparfume" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-[#6b7280] hover:text-[#d4af37] transition-colors"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a 
-                href="https://shopee.co.id/chelseadewaperfume" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-[#6b7280] hover:text-[#d4af37] transition-colors"
+                className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-[#d4af37] hover:bg-gray-700 transition-all duration-300"
               >
                 <ShoppingBag className="w-5 h-5" />
               </a>
@@ -50,130 +45,62 @@ export default function Footer() {
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-#6b7280 hover:text-#d4af37 transition-colors">
+                <Link href="/" className="text-gray-400 hover:text-[#d4af37] transition-colors text-sm sm:text-base">
                   Beranda
                 </Link>
               </li>
               <li>
-                <Link href="/products" className="text-#6b7280 hover:text-#d4af37 transition-colors">
+                <Link href="/products" className="text-gray-400 hover:text-[#d4af37] transition-colors text-sm sm:text-base">
                   Produk
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-#6b7280 hover:text-#d4af37 transition-colors">
+                <Link href="/about" className="text-gray-400 hover:text-[#d4af37] transition-colors text-sm sm:text-base">
                   Tentang Kami
                 </Link>
               </li>
-              <li>
-                <Link href="/contact" className="text-#6b7280 hover:text-#d4af37 transition-colors">
-                  Kontak
-                </Link>
-              </li>
             </ul>
           </div>
 
-          {/* Categories */}
+          {/* Contact */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Kategori</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/products?category=floral" className="text-#6b7280 hover:text-#d4af37 transition-colors">
-                  Floral
-                </Link>
-              </li>
-              <li>
-                <Link href="/products?category=woody" className="text-#6b7280 hover:text-#d4af37 transition-colors">
-                  Woody
-                </Link>
-              </li>
-              <li>
-                <Link href="/products?category=citrus" className="text-#6b7280 hover:text-#d4af37 transition-colors">
-                  Citrus
-                </Link>
-              </li>
-              <li>
-                <Link href="/products?category=oriental" className="text-#6b7280 hover:text-#d4af37 transition-colors">
-                  Oriental
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact & Social */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Kontak & Social</h3>
+            <h3 className="font-semibold text-lg mb-4">Kontak</h3>
             <div className="space-y-3">
               <div className="flex items-center">
-                <MapPin className="w-5 h-5 text-[#d4af37] mr-3" />
-                <span className="text-[#6b7280]">Jakarta, Indonesia</span>
-              </div>
-              <div className="flex items-center">
-                <Mail className="w-5 h-5 text-[#d4af37] mr-3" />
-                <span className="text-[#6b7280]">info@chelseadewaperfume.com</span>
-              </div>
-              <div className="flex items-center">
-                <MessageCircle className="w-5 h-5 text-[#d4af37] mr-3" />
+                <MessageCircle className="w-5 h-5 text-[#d4af37] mr-3 shrink-0" />
                 <a 
-                  href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20bertanya%20mengenai%20parfum."
+                  href="https://wa.me/6282162724324?text=*Chelsea%20Dewa%20Perfume*%0A%0AHalo%20Kak%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20parfum.%20Mohon%20informasikan%20katalog%20dan%20promo%20terbaru.%20Terima%20kasih"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#6b7280] hover:text-[#d4af37] transition-colors"
+                  className="text-gray-400 hover:text-[#d4af37] transition-colors text-sm sm:text-base"
                 >
-                  +62 812-3456-7890
+                  +62 821-6272-4324
                 </a>
               </div>
-            </div>
-            
-            <div className="mt-6 space-y-2">
-              <h4 className="font-medium text-sm mb-3">Follow Us</h4>
-              <div className="flex flex-col space-y-2">
-                <a 
-                  href="https://instagram.com/chelseadewaperfume" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-#6b7280 hover:text-#d4af37 transition-colors text-sm"
-                >
-                  <Instagram className="w-4 h-4 mr-2" />
-                  Instagram
-                </a>
-                <a 
-                  href="https://www.tiktok.com/@chelseadewaperfume" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-#6b7280 hover:text-#d4af37 transition-colors text-sm"
-                >
-                  <Twitter className="w-4 h-4 mr-2" />
-                  TikTok
-                </a>
-                <a 
-                  href="https://shopee.co.id/chelseadewaperfume" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-#6b7280 hover:text-#d4af37 transition-colors text-sm"
-                >
-                  <ShoppingBag className="w-4 h-4 mr-2" />
-                  Shopee
-                </a>
+              <div className="flex items-center">
+                <Mail className="w-5 h-5 text-[#d4af37] mr-3 shrink-0" />
+                <span className="text-gray-400 text-sm sm:text-base">dewaparfumestore@gmail.com</span>
+              </div>
+              <div className="flex items-center">
+                <MapPin className="w-5 h-5 text-[#d4af37] mr-3 shrink-0" />
+                <span className="text-gray-400 text-sm sm:text-base">Jakarta, Indonesia</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[#2f3336] mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-[#6b7280] text-sm">
-              2025 Chelsea Dewa Perfume. All rights reserved.
+        <div className="border-t border-gray-800 mt-8 pt-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <p className="text-gray-400 text-sm">
+              © 2025 Chelsea Dewa Perfume. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/privacy" className="text-[#6b7280] hover:text-[#d4af37] transition-colors text-sm">
-                Privacy Policy
+            <div className="flex space-x-4 sm:space-x-6">
+              <Link href="/privacy" className="text-gray-400 hover:text-[#d4af37] transition-colors text-sm">
+                Privacy
               </Link>
-              <Link href="/terms" className="text-[#6b7280] hover:text-[#d4af37] transition-colors text-sm">
-                Terms of Service
-              </Link>
-              <Link href="/shipping" className="text-[#6b7280] hover:text-[#d4af37] transition-colors text-sm">
-                Shipping Info
+              <Link href="/terms" className="text-gray-400 hover:text-[#d4af37] transition-colors text-sm">
+                Terms
               </Link>
             </div>
           </div>

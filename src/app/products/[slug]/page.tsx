@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ShoppingCart, Heart, Share2, Star } from "lucide-react";
+import { ArrowLeft, ShoppingCart, Heart, Share2 } from "lucide-react";
 import Link from "next/link";
+import ProductImageWithError from "@/components/ProductImageWithError";
+import ProductActions from "@/components/ProductActions";
 
 interface Product {
   id: number;
@@ -43,13 +45,91 @@ const products: Product[] = [
     stock: 23,
     rating: 4.6,
     reviews: 89
+  },
+  {
+    id: 3,
+    name: "Woody Masculine",
+    slug: "woody-masculine",
+    price: 220000,
+    category: "Woody",
+    image: "/images/products/woody-masculine.jpg",
+    description: "Aroma woody yang maskulin dan tegas. Perpaduan cedarwood, sandalwood, dan vetiver yang memberikan kesan elegan dan berwibawa.",
+    size: ["30ml", "50ml", "100ml"],
+    stock: 18,
+    rating: 4.7,
+    reviews: 96
+  },
+  {
+    id: 4,
+    name: "Fresh Citrus",
+    slug: "fresh-citrus",
+    price: 150000,
+    category: "Citrus",
+    image: "/images/products/fresh-citrus.jpg",
+    description: "Aroma citrus yang segar dan energik. Kombinasi lemon, bergamot, dan orange yang memberikan kesan ceria dan menyegarkan.",
+    size: ["30ml", "50ml"],
+    stock: 31,
+    rating: 4.5,
+    reviews: 78
+  },
+  {
+    id: 5,
+    name: "Oriental Spice",
+    slug: "oriental-spice",
+    price: 280000,
+    category: "Oriental",
+    image: "/images/products/oriental-spice.jpg",
+    description: "Aroma oriental yang eksotis dan misterius. Perpaduan rempah-rempah oriental dengan sentuhan vanilla dan amber yang memikat.",
+    size: ["50ml", "100ml"],
+    stock: 12,
+    rating: 4.9,
+    reviews: 143
+  },
+  {
+    id: 6,
+    name: "Sweet Vanilla",
+    slug: "sweet-vanilla",
+    price: 165000,
+    category: "Sweet",
+    image: "/images/products/sweet-vanilla.jpg",
+    description: "Aroma vanilla yang manis dan comforting. Kombinasi vanilla, caramel, dan praline yang memberikan kesan hangat dan menyenangkan.",
+    size: ["30ml", "50ml"],
+    stock: 27,
+    rating: 4.4,
+    reviews: 65
+  },
+  {
+    id: 7,
+    name: "Ocean Breeze",
+    slug: "ocean-breeze",
+    price: 195000,
+    category: "Fresh",
+    image: "/images/products/ocean-breeze.jpg",
+    description: "Aroma segar seperti angin laut. Perpaduan marine notes dengan sentuhan citrus dan white musk yang memberikan kesan bersih dan bebas.",
+    size: ["30ml", "50ml", "100ml"],
+    stock: 20,
+    rating: 4.6,
+    reviews: 112
+  },
+  {
+    id: 8,
+    name: "Midnight Rose",
+    slug: "midnight-rose",
+    price: 320000,
+    category: "Floral",
+    image: "/images/products/midnight-rose.jpg",
+    description: "Aroma mawar yang misterius dan elegan. Kombinasi mawar malam, patchouli, dan oud yang memberikan kesan mewah dan sensual.",
+    size: ["50ml", "100ml"],
+    stock: 8,
+    rating: 4.9,
+    reviews: 187
   }
 ];
 
 interface ProductPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
@@ -66,6 +146,15 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   return {
     title: `${product.name} - Chelsea Dewa Perfume`,
     description: product.description,
+    keywords: [
+      product.name,
+      product.category,
+      "parfum original",
+      "parfum premium",
+      "jual parfum",
+      "Chelsea Dewa Perfume",
+      `parfum ${product.category.toLowerCase()}`,
+    ],
     openGraph: {
       title: product.name,
       description: product.description,
@@ -75,10 +164,19 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
         {
           url: product.image,
           width: 800,
-          height: 600,
+          height: 800,
           alt: product.name,
         }
       ] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: product.name,
+      description: product.description,
+      images: product.image ? [product.image] : [],
+    },
+    alternates: {
+      canonical: `/products/${product.slug}`,
     },
   };
 }
@@ -92,164 +190,166 @@ export default async function ProductPage({ params }: ProductPageProps) {
   }
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
-      minimumFractionDigits: 0
-    }).format(price);
+    return `Rp ${price.toLocaleString('id-ID')}`;
   };
 
   return (
-    <div className="min-h-screen py-8">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-white">
+      {/* Mobile Layout */}
+      <div className="lg:hidden">
         {/* Breadcrumb */}
-        <nav className="mb-8">
-          <Link href="/products" className="text-muted hover:text-[#d4af37] flex items-center gap-2">
-            <ArrowLeft className="w-4 h-4" />
-            Kembali ke Produk
-          </Link>
-        </nav>
+        <div className="px-4 pt-4 pb-2 hidden md:block">
+          <nav className="mb-4">
+            <Link href="/products" className="text-gray-600 hover:text-black flex items-center gap-2 text-sm">
+              <ArrowLeft className="w-4 h-4" />
+              Kembali ke Produk
+            </Link>
+          </nav>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Product Image */}
-          <div>
-            <div className="product-media h-96 lg:h-[500px]">
-              {product.image ? (
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const placeholder = target.nextElementSibling as HTMLElement;
-                    if (placeholder) placeholder.style.display = 'flex';
-                  }}
-                />
-              ) : null}
-              <div className="placeholder" style={{ display: product.image ? 'none' : 'flex' }}>
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-gray-200 rounded-full mx-auto mb-4"></div>
-                  <p className="text-muted">Gambar tidak tersedia</p>
-                </div>
-              </div>
-            </div>
+        {/* Full-width Product Image */}
+        <div className="relative">
+          <div className="aspect-square bg-linear-to-br from-gray-50 to-gray-100 overflow-hidden">
+            <ProductImageWithError
+              src={product.image}
+              alt={product.name}
+              className="w-full h-full object-cover"
+            />
           </div>
+        </div>
 
-          {/* Product Details */}
-          <div>
-            <div className="mb-4">
-              <span className="text-[#d4af37] text-sm uppercase tracking-wider">
-                {product.category}
-              </span>
-              <h1 className="text-3xl lg:text-4xl text-[#d4af37] mt-2 mb-4">
+        {/* Centered Product Details */}
+        <div className="px-4 py-6">
+          <div className="space-y-6 text-center">
+            <div>
+              <div className="mb-3">
+                <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  {product.category}
+                </span>
+              </div>
+              <h1 className="text-3xl font-light text-gray-900 mb-4 leading-tight">
                 {product.name}
               </h1>
               
-              {/* Rating */}
-              <div className="flex items-center gap-4 mb-4">
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-5 h-5 ${
-                        i < Math.floor(product.rating)
-                          ? 'text-yellow-400 fill-current'
-                          : 'text-gray-300'
-                      }`}
-                    />
-                  ))}
-                  <span className="ml-2 text-sm font-medium">{product.rating}</span>
-                </div>
-                <span className="text-muted text-sm">({product.reviews} ulasan)</span>
-              </div>
+              <p className="text-base text-gray-600 mb-4 leading-relaxed">
+                {product.description}
+              </p>
 
-              <div className="text-3xl text-[#d4af37] mb-6">
+              <div className="text-2xl font-light text-gray-900 mb-6">
                 {formatPrice(product.price)}
               </div>
             </div>
 
-            <div className="mb-8">
-              <h3 className="text-lg font-semibold mb-3">Deskripsi</h3>
-              <p className="text-muted leading-relaxed">{product.description}</p>
-            </div>
-
-            {/* Size Selection */}
-            <div className="mb-8">
-              <h3 className="text-lg font-semibold mb-3">Ukuran</h3>
-              <div className="flex gap-3">
+            {/* Size Information */}
+            <div className="space-y-3">
+              <h3 className="text-sm font-medium text-gray-700 uppercase tracking-wide">Ukuran Tersedia</h3>
+              <div className="flex flex-wrap justify-center gap-2">
                 {product.size.map((size) => (
-                  <button
+                  <span
                     key={size}
-                    className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-[#d4af37] hover:text-[#d4af37] transition-colors"
+                    className="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-lg text-xs font-medium"
                   >
                     {size}
-                  </button>
+                  </span>
                 ))}
               </div>
             </div>
 
-            {/* Stock Info */}
-            <div className="mb-8">
-              <p className={`text-sm ${product.stock > 0 ? 'text-green-600' : 'text-red-600'}`}>
-                {product.stock > 0 ? `Stok tersedia: ${product.stock} pcs` : 'Stok habis'}
-              </p>
-            </div>
-
             {/* Action Buttons */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
-              <button 
-                className="btn bg-[#d4af37] btn-lg flex items-center justify-center gap-2"
-                disabled={product.stock === 0}
-              >
-                <ShoppingCart className="w-5 h-5" />
-                {product.stock > 0 ? 'Tambah ke Keranjang' : 'Stok Habis'}
-              </button>
-              <button className="btn border-[#d4af37] hover:bg-[#d4af37] hover:text-white btn-lg flex items-center justify-center gap-2">
-                <Heart className="w-5 h-5" />
-                Wishlist
-              </button>
+            <div className="space-y-4">
+              <ProductActions 
+                productName={product.name}
+                price={formatPrice(product.price)}
+              />
             </div>
 
             {/* Share */}
-            <div className="flex items-center gap-4">
-              <Share2 className="w-5 h-5 text-muted" />
-              <button className="text-muted hover:text-[#d4af37]">Bagikan produk</button>
+            <div className="flex items-center justify-center gap-3 pt-6 border-t border-gray-200">
+              <Share2 className="w-4 h-4 text-gray-400" />
+              <button className="text-gray-600 hover:text-gray-900 text-xs font-medium transition-colors">
+                Bagikan produk
+              </button>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Product Details Tabs */}
-        <div className="mt-16">
-          <div className="border-b border-gray-200 mb-8">
-            <nav className="flex gap-8">
-              <button className="pb-4 border-b-2 border-[#d4af37] text-[#d4af37] font-medium">
-                Deskripsi
-              </button>
-              <button className="pb-4 text-muted hover:text-[#d4af37] font-medium">
-                Ulasan ({product.reviews})
-              </button>
-              <button className="pb-4 text-muted hover:text-[#d4af37] font-medium">
-                Pengiriman
-              </button>
-            </nav>
-          </div>
+      {/* Desktop Layout */}
+      <div className="hidden lg:block">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          {/* Breadcrumb */}
+          <nav className="mb-8">
+            <Link href="/products" className="text-gray-600 hover:text-black flex items-center gap-2 text-sm">
+              <ArrowLeft className="w-4 h-4" />
+              Kembali ke Produk
+            </Link>
+          </nav>
 
-          <div className="prose max-w-none">
-            <h3>Detail Produk</h3>
-            <ul>
-              <li>Kategori: {product.category}</li>
-              <li>Berat: 200g</li>
-              <li>Asal: Import</li>
-              <li>Kualitas: Premium Original</li>
-            </ul>
+          <div className="grid grid-cols-2 gap-24 items-start">
+            {/* Product Image */}
+            <div className="relative">
+              <div className="aspect-square bg-linear-to-br from-gray-50 to-gray-100 rounded-2xl overflow-hidden shadow-xl">
+                <ProductImageWithError
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
 
-            <h3 className="mt-6">Cara Penggunaan</h3>
-            <ol>
-              <li>Semprotkan parfum pada titik nadi (pergelangan tangan, leher)</li>
-              <li>Jangan gosok setelah menyemprot</li>
-              <li>Gunakan setelah mandi untuk hasil maksimal</li>
-            </ol>
+            {/* Product Details */}
+            <div className="space-y-10">
+              <div>
+                <div className="mb-6">
+                  <span className="text-sm font-medium text-gray-500 uppercase tracking-wider">
+                    {product.category}
+                  </span>
+                </div>
+                <h1 className="text-4xl xl:text-5xl font-light text-gray-900 mb-8 leading-tight">
+                  {product.name}
+                </h1>
+                
+                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                  {product.description}
+                </p>
+
+                <div className="text-3xl font-light text-gray-900 mb-12">
+                  {formatPrice(product.price)}
+                </div>
+              </div>
+
+              {/* Size Information */}
+              <div className="space-y-4">
+                <h3 className="text-base font-medium text-gray-700 uppercase tracking-wide">Ukuran Tersedia</h3>
+                <div className="flex flex-wrap gap-3">
+                  {product.size.map((size) => (
+                    <span
+                      key={size}
+                      className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-medium"
+                    >
+                      {size}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="space-y-6">
+                <ProductActions 
+                  productName={product.name}
+                  price={formatPrice(product.price)}
+                  className="grid-cols-2 gap-4"
+                />
+              </div>
+
+              {/* Share */}
+              <div className="flex items-center gap-4 pt-8 border-t border-gray-200">
+                <Share2 className="w-5 h-5 text-gray-400" />
+                <button className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
+                  Bagikan produk
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

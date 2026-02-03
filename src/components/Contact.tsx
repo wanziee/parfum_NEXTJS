@@ -1,11 +1,11 @@
-import { MapPin, Mail, MessageCircle } from 'lucide-react';
+import { MapPin, Mail, MessageCircle, Instagram } from 'lucide-react';
 
 export default function Contact() {
-  const whatsappNumber = '6281234567890';
-  const whatsappMessage = encodeURIComponent('Halo Admin, saya ingin bertanya mengenai parfum.');
+  const whatsappNumber = '6282162724324';
+  const whatsappMessage = encodeURIComponent('*Chelsea Dewa Perfume*\n\nHalo Kak, saya ingin berkonsultasi mengenai produk parfum. Mohon bantuannya untuk informasi detail dan rekomendasi parfum yang sesuai. Terima kasih!');
 
   return (
-    <section className="py-5 pb-6">
+    <section id="contact" className="py-5 pb-6">
       <div className="container mx-auto px-4">
         <h2 className="section-title mb-4">Contact</h2>
         <div className="grid grid-cols-1 lg:grid-cols-7 gap-4">
@@ -23,15 +23,23 @@ export default function Contact() {
                 <Mail className="contact-icon mr-2 shrink-0" />
                 <div>
                   <div className="fw-semibold">Email</div>
-                  <div className="text-muted">info@chelseadewaperfume.com</div>
+                  <div className="text-muted">dewaparfumestore@gmail.com</div>
+                </div>
+              </div>
+              
+              <div className="flex items-start mb-3">
+                <MessageCircle className="contact-icon mr-2 shrink-0" />
+                <div>
+                  <div className="fw-semibold">WhatsApp</div>
+                  <div className="text-muted">+62 821-6272-4324</div>
                 </div>
               </div>
               
               <div className="flex items-start">
-                <MessageCircle className="contact-icon mr-2 shrink-0" />
+                <Instagram className="contact-icon mr-2 shrink-0" />
                 <div>
-                  <div className="fw-semibold">WhatsApp</div>
-                  <div className="text-muted">+62 812-3456-7890</div>
+                  <div className="fw-semibold">Instagram</div>
+                  <div className="text-muted">@chelseadewastoreparfume</div>
                 </div>
               </div>
             </div>
@@ -45,12 +53,12 @@ export default function Contact() {
               </div>
               <div className="d-grid">
                 <a
-                  className="btn btn-gold btn-lg"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-[#25D366] text-white! font-semibold rounded-full hover:bg-[#128C7E] transition-colors"
                   href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <MessageCircle className="w-5 h-5 inline mr-2" />
+                  <MessageCircle className="w-5 h-5 mr-2" />
                   Chat WhatsApp
                 </a>
               </div>

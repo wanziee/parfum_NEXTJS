@@ -25,11 +25,14 @@ module.exports = {
     
     // Add dynamic product pages
     const products = [
-      { slug: 'chelsea-dewa-premium', lastmod: '2025-01-28' },
-      { slug: 'elegant-floral', lastmod: '2025-01-28' },
-      { slug: 'woody-masculine', lastmod: '2025-01-28' },
-      { slug: 'fresh-citrus', lastmod: '2025-01-28' },
-      { slug: 'oriental-spice', lastmod: '2025-01-28' },
+      { slug: 'chelsea-dewa-premium', lastmod: '2025-02-03' },
+      { slug: 'elegant-floral', lastmod: '2025-02-03' },
+      { slug: 'woody-masculine', lastmod: '2025-02-03' },
+      { slug: 'fresh-citrus', lastmod: '2025-02-03' },
+      { slug: 'oriental-spice', lastmod: '2025-02-03' },
+      { slug: 'sweet-vanilla', lastmod: '2025-02-03' },
+      { slug: 'ocean-breeze', lastmod: '2025-02-03' },
+      { slug: 'midnight-rose', lastmod: '2025-02-03' },
     ];
     
     for (const product of products) {

@@ -1,0 +1,27 @@
+import type { Config } from 'tailwindcss'
+
+export default {
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        gold: '#d4af37',
+        ink: '#111111',
+        paper: '#ffffff',
+        muted: '#6b7280',
+        soft: '#f7f7f9',
+        line: '#ececf0',
+      },
+      fontFamily: {
+        sans: ['var(--font-inter)', 'system-ui', '-apple-system', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+} satisfies Config

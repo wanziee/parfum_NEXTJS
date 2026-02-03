@@ -33,7 +33,7 @@ export default function FAQ() {
     },
     {
       question: 'Apakah ada promo atau diskon?',
-      answer: 'Ya! Kami sering ada promo khusus followers TikTok dan Shopee. Follow TikTok @chelseadewaperfume dan cek Shopee official store kami untuk promo terbaru. Ada juga diskon khusus untuk pembelian 3+ produk.'
+      answer: 'Ya! Kami sering ada promo khusus followers TikTok dan Shopee. Follow TikTok @chelseadewastoreparfume dan cek Shopee official store kami untuk promo terbaru. Ada juga diskon khusus untuk pembelian 3+ produk.'
     },
     {
       question: 'Bagaimana jika produk tidak sesuai atau cacat?',

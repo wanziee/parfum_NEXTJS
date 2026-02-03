@@ -11,7 +11,7 @@ interface SocialButtonsProps {
 
 export default function SocialButtons({
   shopeeUrl = "https://shopee.co.id/chelseadewastoreparfume?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnkUYt0uWEKZ6w1ZYq-8JucoTGSoRVZwTFtyEwpWC3n9I-oPj_vvjEHHLZ3bk_aem_ZOhs0z5Ogwtw-R-ORD3MAg",
-  whatsappUrl = "https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20bertanya%20mengenai%20parfum.",
+  whatsappUrl = "https://wa.me/6282162724324?text=*Chelsea%20Dewa%20Perfume*%0A%0AHalo%20Kak%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20parfum%20Chelsea%20Dewa.%20Mohon%20informasikan%20katalog%20dan%20promo%20terbaru.%20Terima%20kasih",
   shopeeText = "Beli di Shopee",
   whatsappText = "Chat WhatsApp",
   size = 'md',
