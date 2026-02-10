@@ -10,10 +10,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center mb-4">
-              <div className="w-10 h-10 bg-[#d4af37] rounded-lg flex items-center justify-center mr-3">
-                <span className="text-gray-900 font-bold text-lg">CD</span>
-              </div>
-              <span className="font-bold text-xl">Chelsea Dewa</span>
+              <img 
+                src="/images/logo-footer.png" 
+                alt="Chelsea Dewa Store Parfume Logo" 
+                className="h-12 w-auto mr-3 transition-all duration-300 hover:scale-105"
+              />
             </div>
             <p className="text-gray-400 mb-6 text-sm sm:text-base leading-relaxed">
               Koleksi parfum premium dengan kualitas terbaik. Sentuhan elegan untuk setiap momen Anda.
@@ -45,17 +46,17 @@ export default function Footer() {
             <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-400 hover:text-[#d4af37] transition-colors text-sm sm:text-base">
+                <Link href="/" className="text-gray-400!  transition-colors text-sm sm:text-base">
                   Beranda
                 </Link>
               </li>
               <li>
-                <Link href="/products" className="text-gray-400 hover:text-[#d4af37] transition-colors text-sm sm:text-base">
+                <Link href="/products" className="text-gray-400!  transition-colors text-sm sm:text-base">
                   Produk
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-[#d4af37] transition-colors text-sm sm:text-base">
+                <Link href="/about" className="text-gray-400!  transition-colors text-sm sm:text-base">
                   Tentang Kami
                 </Link>
               </li>
@@ -69,17 +70,28 @@ export default function Footer() {
               <div className="flex items-center">
                 <MessageCircle className="w-5 h-5 text-[#d4af37] mr-3 shrink-0" />
                 <a 
-                  href="https://wa.me/6282162724324?text=*Chelsea%20Dewa%20Perfume*%0A%0AHalo%20Kak%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20parfum.%20Mohon%20informasikan%20katalog%20dan%20promo%20terbaru.%20Terima%20kasih"
+                  href="https://wa.me/6282162724324?text=*Chelsea%20Dewa%20Store%20Parfume*%0A%0AHalo%20Kak%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20parfum.%20Mohon%20informasikan%20katalog%20dan%20promo%20terbaru.%20Terima%20kasih"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-[#d4af37] transition-colors text-sm sm:text-base"
+                  className="text-gray-400!  transition-colors text-sm sm:text-base"
                 >
                   +62 821-6272-4324
                 </a>
               </div>
               <div className="flex items-center">
                 <Mail className="w-5 h-5 text-[#d4af37] mr-3 shrink-0" />
-                <span className="text-gray-400 text-sm sm:text-base">dewaparfumestore@gmail.com</span>
+                <span className="text-gray-400! text-sm sm:text-base">dewaparfumestore@gmail.com</span>
+              </div>
+              <div className="flex items-center">
+                <Instagram className="w-5 h-5 text-[#d4af37] mr-3 shrink-0" />
+                <a 
+                  href="https://instagram.com/chelseadewastoreparfume" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400!  transition-colors text-sm sm:text-base"
+                >
+                  @chelseadewastoreparfume
+                </a>
               </div>
               <div className="flex items-center">
                 <MapPin className="w-5 h-5 text-[#d4af37] mr-3 shrink-0" />
@@ -93,16 +105,8 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-6">
           <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
             <p className="text-gray-400 text-sm">
-              © 2025 Chelsea Dewa Perfume. All rights reserved.
+              © 2025 Chelsea Dewa Store Parfume. All rights reserved.
             </p>
-            <div className="flex space-x-4 sm:space-x-6">
-              <Link href="/privacy" className="text-gray-400 hover:text-[#d4af37] transition-colors text-sm">
-                Privacy
-              </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-[#d4af37] transition-colors text-sm">
-                Terms
-              </Link>
-            </div>
           </div>
         </div>
       </div>

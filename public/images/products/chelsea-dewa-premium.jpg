@@ -1,8 +1,0 @@
-<!-- Placeholder for chelsea-dewa-premium.jpg -->
-<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="300" height="300" fill="#1a1a1a"/>
-  <rect x="75" y="50" width="150" height="180" fill="#d4af37" rx="15"/>
-  <circle cx="150" cy="140" r="35" fill="#f0d785"/>
-  <text x="150" y="200" text-anchor="middle" fill="#ffffff" font-family="Arial" font-size="14" font-weight="bold">Chelsea Dewa Premium</text>
-  <text x="150" y="220" text-anchor="middle" fill="#f0d785" font-family="Arial" font-size="12">Rp 350.000</text>
-</svg>

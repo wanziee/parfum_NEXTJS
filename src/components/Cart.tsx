@@ -10,6 +10,7 @@ export default function Cart() {
     items, 
     removeItem, 
     updateQuantity, 
+    updateSize,
     clearCart, 
     getTotalItems, 
     getTotalPrice, 
@@ -31,35 +32,55 @@ export default function Cart() {
   };
 
   const handleWhatsAppCheckout = () => {
+    // Check jika ada item yang tidak tersedia
+    const hasUnavailableItems = items.some(item => {
+      return item.prices && Object.keys(item.prices).some(size => {
+        return size === item.size && !(item.availability?.[size] ?? true);
+      });
+    });
+
+    if (hasUnavailableItems) {
+      alert('Tidak dapat checkout. Ada item dengan ukuran yang tidak tersedia di keranjang. Silakan perbarui ukuran item tersebut terlebih dahulu.');
+      return;
+    }
+
     const phoneNumber = '6282162724324'; // +62 821-6272-4324
     const message = generateWhatsAppMessage();
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
+  // Check jika ada item yang tidak tersedia untuk disable checkout
+  const hasCartIssues = items.some(item => {
+    return item.prices && Object.keys(item.prices).some(size => {
+      return size === item.size && !(item.availability?.[size] ?? true);
+    });
+  });
+
   const generateWhatsAppMessage = () => {
     if (items.length === 0) return '';
 
-    let message = '*Chelsea Dewa Perfume - Order Parfum*\n\n';
+    let message = '*Chelsea Dewa Store Parfume - Order Parfum*\n\n';
     message += 'Halo Kak, saya ingin melakukan pemesanan produk berikut:\n\n';
 
     items.forEach((item, index) => {
       message += `*Produk ${index + 1}*\n`;
       message += `Nama: ${item.name}\n`;
-      message += `Harga: Rp ${item.price.toLocaleString('id-ID')}\n`;
+      message += `Ukuran: ${item.size}\n`;
+      message += `Harga: Rp ${item.price.toLocaleString('id-ID')} (belum termasuk ongkir)\n`;
       message += `Jumlah: ${item.quantity} pcs\n`;
       message += `Subtotal: Rp ${(item.price * item.quantity).toLocaleString('id-ID')}\n\n`;
     });
 
     message += `━━━━━━━━━━━━━━━━━━━━━━━━\n`;
-    message += `*Total Pembayaran: Rp ${getTotalPrice().toLocaleString('id-ID')}*\n`;
+    message += `*Total Pembayaran: Rp ${getTotalPrice().toLocaleString('id-ID')} (belum termasuk ongkir)*\n`;
     message += `━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
     message += `Mohon informasikan:\n`;
     message += `• Ketersediaan stok produk\n`;
     message += `• Metode pembayaran yang tersedia\n`;
     message += `• Estimasi pengiriman\n\n`;
     message += `Terima kasih Kak\n`;
-    message += `*Chelsea Dewa Perfume*`;
+    message += `*Chelsea Dewa Store Parfume*`;
 
     return message;
   };
@@ -138,7 +159,7 @@ export default function Cart() {
                 <div key={item.id} className="bg-gray-50 rounded-xl p-4">
                   <div className="flex gap-4">
                     {/* Product Image */}
-                    <div className="w-20 h-20 bg-gray-200 rounded-lg overflow-hidden shrink-0">
+                    <div className="w-20 h-30 bg-gray-200 rounded-lg overflow-hidden shrink-0">
                       {item.image && (
                         <Image
                           src={item.image}
@@ -154,6 +175,34 @@ export default function Cart() {
                     <div className="flex-1">
                       <h4 className="font-semibold text-gray-900 mb-1">{item.name}</h4>
                       <p className="text-sm text-gray-500 mb-2">{item.category}</p>
+                      
+                      {/* Size Selector */}
+                      <div className="mb-3">
+                        <p className="text-xs text-gray-600 mb-1">Ukuran:</p>
+                        <div className="flex gap-1">
+                          {item.prices && Object.keys(item.prices).map((size) => {
+                            const isSizeAvailable = item.availability?.[size] ?? true;
+                            return (
+                              <button
+                                key={size}
+                                onClick={() => isSizeAvailable && updateSize(item.id, size)}
+                                disabled={!isSizeAvailable}
+                                className={`px-2 py-1 rounded text-xs font-medium transition-all duration-200 ${
+                                  item.size === size
+                                    ? "bg-[#d4af37] text-white"
+                                    : isSizeAvailable
+                                    ? "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                                    : "bg-gray-50 text-gray-400 cursor-not-allowed"
+                                }`}
+                              >
+                                {size}
+                              </button>
+                            );
+                          })}
+                        </div>
+ 
+                      </div>
+                      
                       <div className="flex items-center justify-between">
                         <span className="font-bold text-[#d4af37]">{formatPrice(item.price)}</span>
                         
@@ -194,18 +243,28 @@ export default function Cart() {
         {items.length > 0 && (
           <div className="border-t border-gray-200 p-6 space-y-4">
             {/* Total */}
-            <div className="flex justify-between items-center">
-              <span className="text-lg font-semibold text-gray-900">Total:</span>
-              <span className="text-2xl font-bold text-[#d4af37]">{formatPrice(getTotalPrice())}</span>
+            <div className="flex justify-between items-start">
+              <div>
+                <span className="text-lg font-semibold text-gray-900">Total:</span>
+              </div>
+              <div className="text-right">
+                <span className="text-2xl font-bold text-[#d4af37]">{formatPrice(getTotalPrice())}</span>
+                <p className="text-xs text-gray-500 mt-1 italic">(belum termasuk ongkir)</p>
+              </div>
             </div>
 
             {/* Checkout Button */}
             <button
               onClick={handleWhatsAppCheckout}
-              className="w-full py-3 bg-green-500 text-white rounded-xl hover:bg-green-600 transition-all duration-300 font-medium shadow-lg hover:shadow-xl flex items-center justify-center gap-2"
+              disabled={hasCartIssues}
+              className={`w-full py-3 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 rounded-xl flex items-center justify-center gap-2 ${
+                hasCartIssues
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  : "bg-green-500 text-white hover:bg-green-600"
+              }`}
             >
               <MessageCircle className="w-5 h-5" />
-              Checkout via WhatsApp
+              {hasCartIssues ? "Perbaiki Ukuran Terlebih Dahulu" : "Checkout via WhatsApp"}
             </button>
           </div>
         )}

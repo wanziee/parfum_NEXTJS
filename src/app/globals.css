@@ -288,18 +288,26 @@ body {
   border-color: rgba(212,175,55,0.3); 
 }
 
+@media (max-width: 640px) {
+  .product-card:hover { 
+    transform: none !important; 
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important; 
+    border-color: var(--line) !important; 
+  }
+}
+
 .product-media { 
   position: relative; 
-  height: 280px; 
-  border-radius: 12px; 
+  height: 290px; 
+  border-radius: 12px 12px 0 0; 
   overflow: hidden; 
   background: #f3f4f6; 
 }
 
 @media (max-width: 768px) {
   .product-media { 
-    height: 220px; 
-    border-radius: 10px; 
+    height: 240px; 
+    border-radius: 10px 10px 0 0; 
   }
 }
 

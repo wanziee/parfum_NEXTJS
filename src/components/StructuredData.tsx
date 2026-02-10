@@ -10,7 +10,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
         return {
           "@context": "https://schema.org",
           "@type": "Organization",
-          "name": "Chelsea Dewa Perfume",
+          "name": "Chelsea Dewa Store Parfume",
           "url": "https://chelsea-dewa-perfume.com",
           "logo": "https://chelsea-dewa-perfume.com/logo.png",
           "description": "Koleksi parfum pilihan dengan kualitas premium. Sentuhan elegan untuk setiap momen.",
@@ -35,7 +35,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
         return {
           "@context": "https://schema.org",
           "@type": "WebSite",
-          "name": "Chelsea Dewa Perfume",
+          "name": "Chelsea Dewa Store Parfume",
           "url": "https://chelsea-dewa-perfume.com",
           "description": "Koleksi parfum pilihan dengan kualitas premium. Sentuhan elegan untuk setiap momen.",
           "potentialAction": {
@@ -54,7 +54,7 @@ export default function StructuredData({ type, data }: StructuredDataProps) {
           "image": data.image,
           "brand": {
             "@type": "Brand",
-            "name": "Chelsea Dewa Perfume"
+            "name": "Chelsea Dewa Store Parfume"
           },
           "offers": {
             "@type": "Offer",

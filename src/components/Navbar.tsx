@@ -40,8 +40,8 @@ export default function Navbar() {
           <Link href="/" className="flex items-center group">
             <img 
               src="/images/logo.png" 
-              alt="Chelsea Dewa Perfume Logo" 
-              className="h-16 w-auto transition-all duration-300 group-hover:scale-105"
+              alt="Chelsea Dewa Store Parfume Logo" 
+              className="h-12 w-auto transition-all duration-300 group-hover:scale-105"
             />
           </Link>
 

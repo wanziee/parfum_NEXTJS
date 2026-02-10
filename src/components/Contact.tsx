@@ -2,7 +2,7 @@ import { MapPin, Mail, MessageCircle, Instagram } from 'lucide-react';
 
 export default function Contact() {
   const whatsappNumber = '6282162724324';
-  const whatsappMessage = encodeURIComponent('*Chelsea Dewa Perfume*\n\nHalo Kak, saya ingin berkonsultasi mengenai produk parfum. Mohon bantuannya untuk informasi detail dan rekomendasi parfum yang sesuai. Terima kasih!');
+  const whatsappMessage = encodeURIComponent('*Chelsea Dewa Store Parfume*\n\nHalo Kak, saya ingin berkonsultasi mengenai produk parfum. Mohon bantuannya untuk informasi detail dan rekomendasi parfum yang sesuai. Terima kasih!');
 
   return (
     <section id="contact" className="py-5 pb-6">

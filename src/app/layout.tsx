@@ -14,8 +14,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Chelsea Dewa Perfume - Temukan Aroma Khas Anda",
-    template: "%s | Chelsea Dewa Perfume"
+    default: "Chelsea Dewa Store Parfume - Temukan Aroma Khas Anda",
+    template: "%s | Chelsea Dewa Store Parfume"
   },
   description: "Koleksi parfum pilihan dengan kualitas premium. Sentuhan elegan untuk setiap momen. 100% Original, Gratis Ongkir, Harga Terbaik.",
   keywords: [
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     "parfum pria",
     "tokoh parfum online",
     "jual parfum",
-    "Chelsea Dewa Perfume",
+    "Chelsea Dewa Store Parfume",
     "parfum berkualitas",
     "aroma parfum"
   ],
-  authors: [{ name: "Chelsea Dewa Perfume" }],
-  creator: "Chelsea Dewa Perfume",
-  publisher: "Chelsea Dewa Perfume",
+  authors: [{ name: "Chelsea Dewa Store Parfume" }],
+  creator: "Chelsea Dewa Store Parfume",
+  publisher: "Chelsea Dewa Store Parfume",
   formatDetection: {
     email: false,
     address: false,
@@ -46,21 +46,21 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'id_ID',
     url: 'https://chelsea-dewa-perfume.com',
-    title: 'Chelsea Dewa Perfume - Temukan Aroma Khas Anda',
+    title: 'Chelsea Dewa Store Parfume - Temukan Aroma Khas Anda',
     description: 'Koleksi parfum pilihan dengan kualitas premium. Sentuhan elegan untuk setiap momen.',
-    siteName: 'Chelsea Dewa Perfume',
+    siteName: 'Chelsea Dewa Store Parfume',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Chelsea Dewa Perfume - Koleksi Parfum Premium',
+        alt: 'Chelsea Dewa Store Parfume - Koleksi Parfum Premium',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Chelsea Dewa Perfume - Temukan Aroma Khas Anda',
+    title: 'Chelsea Dewa Store Parfume - Temukan Aroma Khas Anda',
     description: 'Koleksi parfum pilihan dengan kualitas premium. Sentuhan elegan untuk setiap momen.',
     images: ['/images/og-image.jpg'],
   },

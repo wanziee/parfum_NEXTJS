@@ -8,83 +8,17 @@ import SocialButtons from "@/components/SocialButtons";
 import { Store, MessageCircle } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Chelsea Dewa Perfume - Temukan Aroma Khas Anda",
+  title: "Chelsea Dewa Store Parfume - Temukan Aroma Khas Anda",
   description: "Koleksi parfum pilihan dengan kualitas premium. Sentuhan elegan untuk setiap momen. 100% Original, Gratis Ongkir, Harga Terbaik.",
   openGraph: {
-    title: "Chelsea Dewa Perfume - Temukan Aroma Khas Anda",
+    title: "Chelsea Dewa Store Parfume - Temukan Aroma Khas Anda",
     description: "Koleksi parfum pilihan dengan kualitas premium. Sentuhan elegan untuk setiap momen.",
     url: "https://chelsea-dewa-perfume.com",
     type: "website",
   },
 };
 
-// Sample product data
-const featuredProducts = [
-  {
-    id: 1,
-    name: "Chelsea Dewa Premium",
-    slug: "chelsea-dewa-premium",
-    price: 250000,
-    category: "Floral",
-    image: "/images/products/chelsea-dewa-premium.jpg"
-  },
-  {
-    id: 2,
-    name: "Elegant Floral",
-    slug: "elegant-floral",
-    price: 180000,
-    category: "Floral",
-    image: "/images/products/elegant-floral.jpg"
-  },
-  {
-    id: 3,
-    name: "Woody Masculine",
-    slug: "woody-masculine",
-    price: 220000,
-    category: "Woody",
-    image: "/images/products/woody-masculine.jpg"
-  },
-  {
-    id: 4,
-    name: "Fresh Citrus",
-    slug: "fresh-citrus",
-    price: 150000,
-    category: "Citrus",
-    image: "/images/products/fresh-citrus.jpg"
-  },
-  {
-    id: 5,
-    name: "Oriental Spice",
-    slug: "oriental-spice",
-    price: 280000,
-    category: "Oriental",
-    image: "/images/products/oriental-spice.jpg"
-  },
-  {
-    id: 6,
-    name: "Sweet Vanilla",
-    slug: "sweet-vanilla",
-    price: 165000,
-    category: "Sweet",
-    image: "/images/products/sweet-vanilla.jpg"
-  },
-  {
-    id: 7,
-    name: "Ocean Breeze",
-    slug: "ocean-breeze",
-    price: 195000,
-    category: "Fresh",
-    image: "/images/products/ocean-breeze.jpg"
-  },
-  {
-    id: 8,
-    name: "Midnight Rose",
-    slug: "midnight-rose",
-    price: 320000,
-    category: "Floral",
-    image: "/images/products/midnight-rose.jpg"
-  }
-];
+import { featuredProducts } from "@/data/products";
 
 export default function Home() {
   return (
@@ -117,17 +51,17 @@ export default function Home() {
       {/* Features */}
       <Features />
 
-      {/* Featured Products */}
+      {/* Bestseller Products */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-end mb-8">
             <div>
-              <div className="text-sm font-semibold text-[#d4af37] mb-2">Featured</div>
-              <h2 className="text-4xl font-bold mb-0 text-gray-900">Produk</h2>
+              <div className="text-sm font-semibold text-[#d4af37] mb-2">Bestseller</div>
+              <h2 className="text-4xl font-bold mb-0 text-gray-900">Produk Terlaris</h2>
             </div>
             <a href="/products" className="text-[#d4af37] hover:text-[#f0d785] font-medium transition-colors">Lihat semua</a>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3 lg:gap-4">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
@@ -168,9 +102,6 @@ export default function Home() {
 
       {/* FAQ */}
       <FAQ />
-
-      {/* Contact */}
-      <Contact />
     </div>
   );
 }

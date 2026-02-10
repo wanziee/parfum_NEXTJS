@@ -3,11 +3,11 @@ import Link from "next/link";
 import { MapPin, Mail, MessageCircle, Heart, Star, Award, Users, ShoppingBag, Instagram } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Tentang Kami | Chelsea Dewa Perfume",
-  description: "Kenali lebih dekat Chelsea Dewa Perfume - koleksi parfum premium dengan kualitas terbaik dan pelayanan memuaskan.",
+  title: "Tentang Kami | Chelsea Dewa Store Parfume",
+  description: "Kenali lebih dekat Chelsea Dewa Store Parfume - koleksi parfum premium dengan kualitas terbaik dan pelayanan memuaskan.",
   openGraph: {
-    title: "Tentang Kami | Chelsea Dewa Perfume",
-    description: "Kenali lebih dekat Chelsea Dewa Perfume - koleksi parfum premium dengan kualitas terbaik.",
+    title: "Tentang Kami | Chelsea Dewa Store Parfume",
+    description: "Kenali lebih dekat Chelsea Dewa Store Parfume - koleksi parfum premium dengan kualitas terbaik.",
     url: "https://chelsea-dewa-perfume.com/about",
     type: "website",
   },
@@ -16,50 +16,44 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="py-12 md:py-16 lg:py-20 bg-linear-to-br from-[#f8f9fa] via-white to-[#fafbfc]">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 text-gray-900 leading-tight">
-              Tentang <span className="text-[#d4af37]">Chelsea Dewa</span>
-              <br />
-              <span className="text-[#d4af37]">Perfume</span>
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 leading-relaxed mb-6 md:mb-8 max-w-3xl mx-auto font-light">
-              Koleksi parfum pilihan dengan kualitas premium. Kami hadir untuk memberikan sentuhan elegan untuk setiap momen dalam hidup Anda.
-            </p>
-            <div className="flex justify-center">
-              <div className="w-16 h-1 sm:w-20 md:w-24 bg-linear-to-r from-[#d4af37] to-[#c9a037] rounded-full shadow-lg"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Story Section */}
       <section className="py-12 md:py-16 lg:py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8 text-gray-900">
-              Cerita Kami
-            </h2>
-            <p className="text-gray-600 mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
-              Chelsea Dewa Perfume lahir dari hasrat untuk memberikan parfum berkualitas tinggi yang dapat meningkatkan kepercayaan diri setiap individu. Perjalanan kami dimulai pada tahun 2020 dengan komitmen untuk menyediakan koleksi parfum original dengan harga terjangkau.
-            </p>
-            <p className="text-gray-600 mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
-              Setiap parfum yang kami pilih melalui proses kurasi ketat untuk memastikan kualitas, keaslian, dan keharuman yang tahan lama. Kami percaya bahwa parfum bukan hanya tentang aroma, tetapi juga tentang ekspresi diri dan kenangan.
-            </p>
-            <p className="text-gray-600 mb-8 md:mb-12 leading-relaxed text-sm md:text-base">
-              Hingga saat ini, kami telah melayani ribuan pelanggan di seluruh Indonesia dan terus berinovasi untuk memberikan pengalaman berbelanja yang terbaik.
-            </p>
-            
-            <div className="bg-linear-to-br from-[#d4af37]/10 to-[#d4af37]/5 p-6 md:p-8 rounded-2xl max-w-md mx-auto">
-              <div className="w-12 h-12 md:w-16 md:h-16 bg-[#d4af37] rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
-                <Heart className="w-6 h-6 md:w-8 md:h-8 text-white" />
+          <div className="max-w-6xl mx-auto">
+            {/* Title - Center on mobile, left on desktop */}
+            <div className="text-center md:text-left mb-8 md:mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 text-gray-900">
+                Cerita Kami
+              </h2>
+            </div>
+
+            {/* Content - Mobile: stacked & centered, Desktop: side by side */}
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+              {/* Text Content - Mobile: centered, Desktop: left aligned */}
+              <div className="flex-1 text-center md:text-left">
+                <p className="text-gray-600 mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
+                  Chelsea Dewa Store Parfume lahir dari hasrat untuk memberikan parfum berkualitas tinggi yang dapat meningkatkan kepercayaan diri setiap individu. Perjalanan kami dimulai pada tahun 2020 dengan komitmen untuk menyediakan koleksi parfum original dengan harga terjangkau.
+                </p>
+                <p className="text-gray-600 mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
+                  Setiap parfum yang kami pilih melalui proses kurasi ketat untuk memastikan kualitas, keaslian, dan keharuman yang tahan lama. Kami percaya bahwa parfum bukan hanya tentang aroma, tetapi juga tentang ekspresi diri dan kenangan.
+                </p>
+                <p className="text-gray-600 mb-6 md:mb-8 leading-relaxed text-sm md:text-base">
+                  Hingga saat ini, kami telah melayani ribuan pelanggan di seluruh Indonesia dan terus berinovasi untuk memberikan pengalaman berbelanja yang terbaik.
+                </p>
               </div>
-              <h3 className="text-lg md:text-2xl font-bold mb-2 text-gray-900">Dibuat dengan Cinta</h3>
-              <p className="text-gray-600 text-sm md:text-base">
-                Setiap produk dipilih dengan penuh perhatian dan kepedulian untuk kepuasan Anda.
-              </p>
+
+              {/* Card - Mobile: centered below text, Desktop: side by side */}
+              <div className="w-full md:w-auto">
+                <div className="bg-linear-to-br from-[#d4af37]/10 to-[#d4af37]/5 p-6 md:p-8 rounded-2xl max-w-md mx-auto md:mx-0">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-[#d4af37] rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+                    <Heart className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                  </div>
+                  <h3 className="text-lg md:text-2xl font-bold mb-2 text-gray-900 text-center md:text-left">Dibuat dengan Cinta</h3>
+                  <p className="text-gray-600 text-sm md:text-base text-center md:text-left">
+                    Setiap produk dipilih dengan penuh perhatian dan kepedulian untuk kepuasan Anda.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

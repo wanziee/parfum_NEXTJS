@@ -12,10 +12,6 @@ export default function FAQ() {
       answer: 'Anda dapat langsung memesan melalui Shopee official store kami atau TikTok shop. Klik tombol "Beli di Shopee" atau "Chat WhatsApp" untuk memulai pemesanan. Kami juga melayani pemesanan langsung via WhatsApp untuk konsultasi produk.'
     },
     {
-      question: 'Apakah produk original dan bergaransi?',
-      answer: 'Ya, semua parfum yang kami jual 100% original dengan garansi keaslian. Jika produk tidak original, kami garansi uang kembali 100%. Produk kami memiliki sertifikat keaslian dari distributor resmi.'
-    },
-    {
       question: 'Berapa lama proses pengiriman?',
       answer: 'Pengiriman via Shopee: 1-3 hari kerja (Jabodetabek), 3-5 hari kerja (luar Jabodetabek). Pengiriman langsung dari kami: 1-2 hari kerja untuk area Jakarta, 2-4 hari kerja untuk luar kota.'
     },
@@ -62,7 +58,7 @@ export default function FAQ() {
               className="mb-4 bg-white rounded-xl shadow-sm border border-[#d4af37]100 hover:shadow-md transition-all duration-300"
             >
               <button
-                className={`w-full px-6 py-5 text-left flex items-center justify-between group ${
+                className={`w-full px-5 py-3 text-left flex items-center justify-between group ${
                   activeIndex === index ? 'text-[#d4af37]' : 'text-gray-900'
                 } transition-colors duration-200`}
                 onClick={() => toggleAccordion(index)}

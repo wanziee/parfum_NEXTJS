@@ -1,8 +1,0 @@
-<!-- Placeholder for oriental-spice.jpg -->
-<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="300" height="300" fill="#8B0000"/>
-  <rect x="60" y="60" width="180" height="160" fill="#CD853F" rx="12"/>
-  <circle cx="150" cy="140" r="35" fill="#DEB887"/>
-  <text x="150" y="200" text-anchor="middle" fill="#FFF8DC" font-family="Arial" font-size="14" font-weight="bold">Oriental Spice</text>
-  <text x="150" y="220" text-anchor="middle" fill="#F5DEB3" font-family="Arial" font-size="12">Rp 280.000</text>
-</svg>

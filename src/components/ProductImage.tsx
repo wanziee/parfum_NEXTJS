@@ -22,6 +22,7 @@ export default function ProductImage({ src, alt, className = "" }: ProductImageP
         <img
           src={src}
           alt={alt}
+          className="w-full h-full object-cover rounded-t-xl"
           onError={handleImageError}
         />
       )}

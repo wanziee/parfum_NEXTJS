@@ -4,14 +4,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://chelsea-dewa-perfume.com'
   
   const products = [
-    'chelsea-dewa-premium',
-    'elegant-floral',
-    'woody-masculine',
-    'fresh-citrus',
-    'oriental-spice',
-    'sweet-vanilla',
-    'ocean-breeze',
-    'midnight-rose'
+    'ysl-libre',
+    'baccarat-rouge-540',
+    'black-opium',
+    'dior-sauvage',
+    '212-vip',
+    'aigner-black',
+    'bulgari-extreme',
+    'giorgio-armani-acqua-di-gio',
+    'omnia-amethyste',
+    'coco-chanel'
   ]
 
   const productUrls = products.map((product) => ({

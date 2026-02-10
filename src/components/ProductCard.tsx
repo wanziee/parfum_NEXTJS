@@ -3,6 +3,7 @@
 import { Eye, ShoppingCart } from 'lucide-react';
 import ProductImage from './ProductImage';
 import { useCart } from '@/contexts/CartContext';
+import { getDefaultPrices } from '@/data/products';
 
 interface Product {
   id: number;
@@ -11,6 +12,8 @@ interface Product {
   price: number;
   category?: string;
   image?: string;
+  isBestseller?: boolean;
+  availability?: { [key: string]: boolean };
 }
 
 interface ProductCardProps {
@@ -25,39 +28,56 @@ export default function ProductCard({ product }: ProductCardProps) {
   };
 
   const handleAddToCart = () => {
-    addItem(product);
+    // Default size dan harga untuk produk dari halaman utama/products list
+    const defaultSize = "35ml";
+    const defaultPrices = getDefaultPrices(product.slug);
+    const defaultPrice = defaultPrices[defaultSize] || product.price;
+    
+    addItem({
+      ...product,
+      size: defaultSize,
+      price: defaultPrice,
+      prices: defaultPrices,
+      availability: product.availability
+    });
   };
 
   return (
-    <div className="product-card p-3 sm:p-4 h-full flex flex-col bg-white border border-[#d4af37]/20 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#d4af37]/40">
+    <div className="product-card h-full flex flex-col bg-white border border-[#d4af37]/20 rounded-xl shadow-sm transition-all duration-300 sm:hover:shadow-xl sm:hover:-translate-y-1 sm:hover:border-[#d4af37]/40 relative">
+      {/* Bestseller Badge */}
+      {product.isBestseller && (
+        <div className="absolute top-0 left-0 z-10 bg-linear-to-r from-black to-transparent text-white text-xs px-2 py-1 opacity-60 font-semibold rounded-tl-xl">
+          Bestseller
+        </div>
+      )}
+      
       <ProductImage
         src={product.image}
         alt={product.name}
-        className="product-media mb-3 sm:mb-4 rounded-xl overflow-hidden shadow-md"
+        className="product-media mb-3 sm:mb-4 rounded-t-xl overflow-hidden "
       />
       
-      <div className="flex-1 flex flex-col">
-        <h3 className="font-semibold text-sm sm:text-base lg:text-lg mb-2 text-gray-900 line-clamp-2 leading-snug">{product.name}</h3>
-        <div className="text-xs sm:text-sm text-gray-500 mb-3">{product.category || 'Parfum'}</div>
-        <div className="text-base sm:text-lg lg:text-xl font-bold text-[#d4af37] mb-4">{formatPrice(product.price)}</div>
+      <div className="flex-1 flex px-3 sm:px-3 pb-3 flex-col">
+        <h3 className="font-semibold text-sm sm:text-base lg:text-lg mb-1 text-gray-900 line-clamp-2 leading-snug">{product.name}</h3>
+        <div className="text-xs sm:text-xs text-gray-500 mb-2">{product.category || 'Parfum'}</div>
+        <div className="text-base sm:text-lg lg:text-xl font-bold text-[#d4af37] mb-3">{formatPrice(product.price)}</div>
         
-        {/* Mobile: Stack buttons vertically */}
-        <div className="mt-auto space-y-2 sm:space-y-0 sm:flex sm:gap-2">
+        {/* Mobile & Desktop: Side-by-side buttons */}
+        <div className="mt-auto flex gap-2">
           <a
             href={`/products/${product.slug}`}
-            className="w-full sm:flex-2 inline-flex items-center justify-center px-3 sm:px-4 py-2.5 border border-[#d4af37] text-[#d4af37] rounded-lg hover:bg-[#d4af37]/10 hover:border-[#d4af37]/80 hover:text-[#d4af37]/90 transition-all duration-300 text-sm font-medium group"
+            className="flex-1 inline-flex items-center justify-center px-2 py-2 border border-[#d4af37] text-[#d4af37] rounded-lg sm:hover:bg-[#d4af37]/10 sm:hover:border-[#d4af37]/80 sm:hover:text-[#d4af37]/90 transition-all duration-300 text-xs sm:text-sm font-medium group"
           >
-            <Eye className="w-4 h-4 mr-1 sm:mr-2 group-hover:scale-110 transition-transform shrink-0" />
-            <span className="hidden sm:inline"> Lihat Detail</span>
-            <span className="sm:hidden">Lihat Detail</span>
+            <span className="hidden xs:inline sm:inline"> Lihat Detail</span>
+            <span className="xs:hidden sm:hidden">Lihat Detail</span>
           </a>
           <button
             onClick={handleAddToCart}
-            className="w-full sm:w-auto sm:aspect-square inline-flex items-center justify-center px-4 py-2.5 bg-linear-to-r from-[#d4af37] to-[#c9a037] text-white rounded-lg hover:from-[#c9a037] hover:to-[#b89635] transition-all duration-300 text-sm font-semibold shadow-md hover:shadow-lg transform hover:scale-105 group"
+            className="w-8 h-8 sm:w-12 sm:h-auto inline-flex items-center justify-center px-2 py-2 sm:px-4 sm:py-2.5 bg-linear-to-r from-[#d4af37] to-[#c9a037] text-white rounded-lg sm:hover:from-[#c9a037] sm:hover:to-[#b89635] transition-all duration-300 text-xs sm:text-sm font-semibold shadow-md sm:hover:shadow-lg sm:hover:scale-105 group"
             title="Tambah ke Keranjang"
           >
-            <ShoppingCart className="w-4 h-4 group-hover:scale-110 transition-transform" />
-            <span className="sm:hidden ml-2">Keranjang</span>
+            <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4 sm:group-hover:scale-110 transition-transform" />
+            <span className="hidden sm:hidden ml-1">+</span>
           </button>
         </div>
       </div>
