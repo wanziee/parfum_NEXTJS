@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { MapPin, Mail, MessageCircle, Instagram, ShoppingBag } from 'lucide-react';
+import Image from 'next/image';
+import { MapPin, Mail, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -36,7 +37,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-[#d4af37] hover:bg-gray-700 transition-all duration-300"
               >
-                <ShoppingBag className="w-5 h-5" />
+                <Image src="/images/icons/shopee.png" alt="Shopee" width={20} height={20} className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -68,7 +69,7 @@ export default function Footer() {
             <h3 className="font-semibold text-lg mb-4">Kontak</h3>
             <div className="space-y-3">
               <div className="flex items-center">
-                <MessageCircle className="w-5 h-5 text-[#d4af37] mr-3 shrink-0" />
+                <Image src="/images/icons/whatsapp.png" alt="WhatsApp" width={20} height={20} className="w-5 h-5 text-[#d4af37] mr-3 shrink-0" />
                 <a 
                   href="https://wa.me/6282162724324?text=*Chelsea%20Dewa%20Store%20Parfume*%0A%0AHalo%20Kak%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20parfum.%20Mohon%20informasikan%20katalog%20dan%20promo%20terbaru.%20Terima%20kasih"
                   target="_blank"
@@ -95,7 +96,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center">
                 <MapPin className="w-5 h-5 text-[#d4af37] mr-3 shrink-0" />
-                <span className="text-gray-400 text-sm sm:text-base">Jakarta, Indonesia</span>
+                <span className="text-gray-400 text-sm sm:text-base">BSD, Indonesia</span>
               </div>
             </div>
           </div>

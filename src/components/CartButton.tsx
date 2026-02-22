@@ -2,14 +2,15 @@
 
 import { useCart } from '@/contexts/CartContext';
 import { ShoppingCart } from 'lucide-react';
+import Link from 'next/link';
 
 export default function CartButton() {
-  const { getTotalItems, setIsOpen } = useCart();
+  const { getTotalItems } = useCart();
   const totalItems = getTotalItems();
 
   return (
-    <button
-      onClick={() => setIsOpen(true)}
+    <Link
+      href="/cart"
       className="group relative p-2.5 text-gray-600 hover:text-[#d4af37] transition-all duration-300 hover:scale-105 transform"
       title="Keranjang Belanja"
     >
@@ -26,6 +27,6 @@ export default function CartButton() {
       
       {/* Hover effect ring */}
       <div className="absolute inset-0 bg-[#d4af37]/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 -z-10"></div>
-    </button>
+    </Link>
   );
 }

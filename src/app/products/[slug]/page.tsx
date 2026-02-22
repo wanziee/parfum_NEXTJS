@@ -51,6 +51,8 @@ export default function ProductPage({ params }: ProductPageProps) {
   };
 
   const currentPrice = product.prices?.[selectedSize] || product.price;
+  const originalPrice = product.originalPrices?.[selectedSize];
+  const hasDiscount = product.hasDiscount?.[selectedSize] || false;
 
   return (
     <div className="min-h-screen bg-white">
@@ -149,10 +151,17 @@ export default function ProductPage({ params }: ProductPageProps) {
 
             {/* Price */}
             <div className="text-center mb-6">
-              <div className="text-xl font-light text-gray-900 mb-2">
-                {formatPrice(currentPrice)}
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <div className="text-xl font-light text-gray-900">
+                  {formatPrice(currentPrice)}
+                </div>
+                {hasDiscount && originalPrice && (
+                  <span className="text-sm text-gray-400 line-through">
+                    {formatPrice(originalPrice)}
+                  </span>
+                )}
               </div>
-              <p className="text-xs text-gray-500 italic">(belum termasuk ongkir)</p>
+              <p className="text-xs text-gray-500 italic">(harga belum termasuk ongkir dan kemungkinan berubah jika ada promo, konfirmasi ke admin saat pembelian apakah promo tersedia)</p>
             </div>
 
             {/* Action Buttons */}
@@ -160,6 +169,7 @@ export default function ProductPage({ params }: ProductPageProps) {
               <ProductActions 
                 productName={`${product.name} - ${selectedSize}`}
                 price={formatPrice(currentPrice)}
+                shopeeLink={product.shopeeLink}
                 productData={{
                   id: product.id,
                   name: product.name,
@@ -271,10 +281,17 @@ export default function ProductPage({ params }: ProductPageProps) {
 
               {/* Price */}
               <div className="mb-8">
-                <div className="text-2xl xl:text-3xl font-light text-gray-900 mb-3">
-                  {formatPrice(currentPrice)}
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="text-2xl xl:text-3xl font-light text-gray-900">
+                    {formatPrice(currentPrice)}
+                  </div>
+                  {hasDiscount && originalPrice && (
+                    <span className="text-lg text-gray-400 line-through">
+                      {formatPrice(originalPrice)}
+                    </span>
+                  )}
                 </div>
-                <p className="text-sm text-gray-500 italic">(belum termasuk ongkir)</p>
+                <p className="text-sm text-gray-500 italic">(harga belum termasuk ongkir dan kemungkinan berubah jika ada promo, konfirmasi ke admin saat pembelian apakah promo tersedia)</p>
               </div>
 
               {/* Action Buttons */}
@@ -282,6 +299,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                 <ProductActions 
                   productName={`${product.name} - ${selectedSize}`}
                   price={formatPrice(currentPrice)}
+                  shopeeLink={product.shopeeLink}
                   productData={{
                     id: product.id,
                     name: product.name,
@@ -297,13 +315,7 @@ export default function ProductPage({ params }: ProductPageProps) {
               </div>
             </div>
 
-              {/* Share */}
-              <div className="flex items-center gap-4 pt-8 border-t border-gray-200">
-                <Share2 className="w-5 h-5 text-gray-400" />
-                <button className="text-gray-600 hover:text-gray-900 text-sm font-medium transition-colors">
-                  Bagikan produk
-                </button>
-              </div>
+
             </div>
         </div>
       </div>

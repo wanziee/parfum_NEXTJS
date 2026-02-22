@@ -1,4 +1,5 @@
-import { MapPin, Mail, MessageCircle, Instagram } from 'lucide-react';
+import { MapPin, Mail, Instagram } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Contact() {
   const whatsappNumber = '6282162724324';
@@ -15,7 +16,7 @@ export default function Contact() {
                 <MapPin className="contact-icon mr-2 shrink-0" />
                 <div>
                   <div className="fw-semibold">Alamat</div>
-                  <div className="text-muted">Jakarta, Indonesia</div>
+                  <div className="text-muted">BSD, Indonesia</div>
                 </div>
               </div>
               
@@ -28,7 +29,7 @@ export default function Contact() {
               </div>
               
               <div className="flex items-start mb-3">
-                <MessageCircle className="contact-icon mr-2 shrink-0" />
+                <Image src="/images/icons/whatsapp.png" alt="WhatsApp" width={20} height={20} className="contact-icon mr-2 shrink-0" />
                 <div>
                   <div className="fw-semibold">WhatsApp</div>
                   <div className="text-muted">+62 821-6272-4324</div>
@@ -58,7 +59,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <MessageCircle className="w-5 h-5 mr-2" />
+                  <Image src="/images/icons/whatsapp.png" alt="WhatsApp" width={20} height={20} className="w-5 h-5 mr-2" />
                   Chat WhatsApp
                 </a>
               </div>

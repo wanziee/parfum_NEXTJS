@@ -1,11 +1,12 @@
 'use client';
 
-import { ShoppingBag, MessageCircle, ShoppingCart } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
 
 interface ProductActionsProps {
   productName: string;
   price: string;
+  shopeeLink?: string;
   productData?: {
     id: number;
     name: string;
@@ -20,7 +21,7 @@ interface ProductActionsProps {
   className?: string;
 }
 
-export default function ProductActions({ productName, price, productData, className = "" }: ProductActionsProps) {
+export default function ProductActions({ productName, price, shopeeLink, productData, className = "" }: ProductActionsProps) {
   const { addItem } = useCart();
 
   const handleAddToCart = () => {
@@ -42,18 +43,67 @@ export default function ProductActions({ productName, price, productData, classN
   const isSizeAvailable = productData?.availability?.[productData?.size] ?? true;
 
   const handleShopeeClick = () => {
-    window.open('https://shopee.co.id', '_blank');
+    if (shopeeLink) {
+      window.open(shopeeLink, '_blank');
+    }
+    // If shopeeLink is empty, do nothing
   };
 
   const handleWhatsAppClick = () => {
-    const message = `*Chelsea Dewa Store Parfume*\n\nHalo Kak, saya tertarik dengan produk:\n\nProduk: ${productName}\nHarga: ${price} (belum termasuk ongkir)\n\nMohon informasikan ketersediaan stok dan detail produknya. Terima kasih!`;
+    const message = `*Chelsea Dewa Store Parfume*\n\n🎉 PROMO SPESIAL VALENTINE & IMLEK 🎉\n🔥 BELI 35ml GRATIS 10ml HANYA 99K 🔥\n\nHalo Kak, saya tertarik dengan produk:\n\nProduk: ${productName}\nHarga: ${price} (belum termasuk ongkir)\n\n🎁 *INFO PROMO BERLAKU:* 🎁\n• Setiap pembelian produk 35ml dapat gratis 10ml\n• Harga khusus promo: Rp 99.000\n• Berlaku untuk semua varian parfum\n• Periode promo: Valentine & Imlek\n• Gratis ongkir minimal pembelian tertentu\n\nMohon informasikan ketersediaan stok, konfirmasi promo, dan detail produknya. Terima kasih!`;
     const whatsappUrl = `https://wa.me/6282162724324?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   return (
     <div className={`space-y-3 ${className}`}>
-      {/* Add to Cart Button */}
+
+      
+      {/* Checkout Buttons */}
+      <div className="grid grid-cols-2 gap-3 lg:gap-4">
+        <button 
+          className={`py-3 lg:py-4 text-white rounded-xl transition-all duration-300 font-medium flex items-center justify-center gap-2 lg:gap-3 text-xs lg:text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 ${
+            shopeeLink 
+              ? "bg-[#EE4D2D] hover:bg-[#D63031]" 
+              : "bg-gray-400 cursor-not-allowed"
+          }`}
+          onClick={handleShopeeClick}
+          disabled={!shopeeLink}
+        >
+          <div className="w-4 h-4 lg:w-5 lg:h-5 flex items-center justify-center">
+            <img 
+              src="/images/icons/shopee.png" 
+              alt="Shopee" 
+              width={20} 
+              height={20}
+              className="w-full h-full object-contain"
+              onError={(e) => console.error('Shopee icon failed to load')}
+              onLoad={() => console.log('Shopee icon loaded successfully')}
+            />
+          </div>
+          <span className="hidden sm:inline">Checkout via Shopee</span>
+          <span className="sm:hidden">Checkout via Shopee</span>
+        </button>
+        <button 
+          className="py-3 lg:py-4 bg-[#25D366] text-white rounded-xl hover:bg-[#128C7E] transition-all duration-300 font-medium flex items-center justify-center gap-2 lg:gap-3 text-xs lg:text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+          onClick={handleWhatsAppClick}
+        >
+          <div className="w-4 h-4 lg:w-5 lg:h-5 flex items-center justify-center">
+            <img 
+              src="/images/icons/whatsapp.png" 
+              alt="WhatsApp" 
+              width={20} 
+              height={20}
+              className="w-full h-full object-contain"
+              onError={(e) => console.error('WhatsApp icon failed to load')}
+              onLoad={() => console.log('WhatsApp icon loaded successfully')}
+            />
+          </div>
+          <span className="hidden sm:inline">Checkout via Whatsapp</span>
+          <span className="sm:hidden">Checkout via WhatsApp</span>
+        </button>
+
+              {/* Add to Cart Button */}
       {productData && (
         <button 
           onClick={handleAddToCart}
@@ -68,25 +118,6 @@ export default function ProductActions({ productName, price, productData, classN
           <span>{isSizeAvailable ? "Tambah ke Keranjang" : "Ukuran Tidak Tersedia"}</span>
         </button>
       )}
-      
-      {/* Checkout Buttons */}
-      <div className="grid grid-cols-2 gap-3 lg:gap-4">
-        <button 
-          className="py-3 lg:py-4 bg-[#EE4D2D] text-white rounded-xl hover:bg-[#D63031] transition-all duration-300 font-medium flex items-center justify-center gap-2 lg:gap-3 text-xs lg:text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-          onClick={handleShopeeClick}
-        >
-          <ShoppingBag className="w-4 h-4 lg:w-5 lg:h-5" />
-          <span className="hidden sm:inline">Checkout via Shopee</span>
-          <span className="sm:hidden">Shopee</span>
-        </button>
-        <button 
-          className="py-3 lg:py-4 bg-[#25D366] text-white rounded-xl hover:bg-[#128C7E] transition-all duration-300 font-medium flex items-center justify-center gap-2 lg:gap-3 text-xs lg:text-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-          onClick={handleWhatsAppClick}
-        >
-          <MessageCircle className="w-4 h-4 lg:w-5 lg:h-5" />
-          <span className="hidden sm:inline">Checkout via Whatsapp</span>
-          <span className="sm:hidden">WhatsApp</span>
-        </button>
       </div>
     </div>
   );

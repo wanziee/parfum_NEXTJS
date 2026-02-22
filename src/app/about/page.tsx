@@ -150,7 +150,7 @@ export default function AboutPage() {
                   <MapPin className="w-6 h-6 md:w-7 md:h-7 text-[#d4af37]" />
                 </div>
                 <h3 className="font-semibold mb-2 text-gray-900 text-sm md:text-base">Alamat</h3>
-                <p className="text-gray-600 text-sm md:text-base">Jakarta, Indonesia</p>
+                <p className="text-gray-600 text-sm md:text-base">BSD, Indonesia</p>
               </div>
               
               <div className="text-center">

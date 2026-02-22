@@ -1,4 +1,4 @@
-import { ShoppingBag, MessageCircle } from 'lucide-react';
+import Image from 'next/image';
 
 interface SocialButtonsProps {
   shopeeUrl?: string;
@@ -59,7 +59,7 @@ className={`
 
         title="Beli produk parfum original di Shopee"
       >
-        <ShoppingBag className={`${iconSizes[size]} mr-2 text-white shrink-0`} />
+        <Image src="/images/icons/shopee.png" alt="Shopee" width={16} height={16} className={`${iconSizes[size]} mr-2 text-white shrink-0`} />
         <span className="text-white font-medium">{shopeeText}</span>
       </a>
 
@@ -86,7 +86,7 @@ className={`
 
         title="Hubungi kami via WhatsApp untuk pertanyaan dan pemesanan"
       >
-        <MessageCircle className={`${iconSizes[size]} mr-2 text-white shrink-0`} />
+        <Image src="/images/icons/whatsapp.png" alt="WhatsApp" width={16} height={16} className={`${iconSizes[size]} mr-2 text-white shrink-0`} />
         <span className="text-white font-medium">{whatsappText}</span>
       </a>
     </div>

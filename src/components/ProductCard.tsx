@@ -40,6 +40,22 @@ export default function ProductCard({ product }: ProductCardProps) {
       prices: defaultPrices,
       availability: product.availability
     });
+
+    // Show success notification
+    const notification = document.createElement('div');
+    notification.className = 'fixed top-20 right-4 bg-green-500 text-white text-sm px-4 py-2 rounded-lg shadow-lg z-50 flex items-center gap-2';
+    notification.innerHTML = `
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+      </svg>
+      <span class="text-sm font-medium">Berhasil ditambahkan ke keranjang!</span>
+    `;
+    document.body.appendChild(notification);
+    
+    // Remove notification after 3 seconds
+    setTimeout(() => {
+      notification.remove();
+    }, 2000);
   };
 
   return (
@@ -59,8 +75,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       
       <div className="flex-1 flex px-3 sm:px-3 pb-3 flex-col">
         <h3 className="font-semibold text-sm sm:text-base lg:text-lg mb-1 text-gray-900 line-clamp-2 leading-snug">{product.name}</h3>
-        <div className="text-xs sm:text-xs text-gray-500 mb-2">{product.category || 'Parfum'}</div>
-        <div className="text-base sm:text-lg lg:text-xl font-bold text-[#d4af37] mb-3">{formatPrice(product.price)}</div>
+        <div className="text-xs sm:text-xs text-gray-500 mb-3">{product.category || 'Parfum'}</div>
         
         {/* Mobile & Desktop: Side-by-side buttons */}
         <div className="mt-auto flex gap-2">

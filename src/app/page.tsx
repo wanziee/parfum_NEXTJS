@@ -6,6 +6,7 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import SocialButtons from "@/components/SocialButtons";
 import { Store, MessageCircle } from "lucide-react";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Chelsea Dewa Store Parfume - Temukan Aroma Khas Anda",
@@ -51,54 +52,69 @@ export default function Home() {
       {/* Features */}
       <Features />
 
-      {/* Bestseller Products */}
-      <section className="py-16">
+      {/* Promo Banner */}
+      <section className="py-3">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-end mb-8">
-            <div>
-              <div className="text-sm font-semibold text-[#d4af37] mb-2">Bestseller</div>
-              <h2 className="text-4xl font-bold mb-0 text-gray-900">Produk Terlaris</h2>
+          <div className="bg-[#d4af37]/5 rounded-xl p-5 border border-[#d4af37]/15">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex-1 text-center sm:text-left">
+                <div className="flex items-center justify-center sm:justify-start gap-3 mb-2">
+                  <h3 className="text-lg font-bold text-gray-900">Promo Imlek & Valentine</h3>
+                </div>
+                <p className="text-sm flex items-center justify-center sm:justify-start text-gray-600 mb-1">
+<span className="font-semibold mr-1">
+  35ml + gratis 10ml
+</span>
+hanya
+<span className="font-bold text-[#d4af37] ml-1">
+  99rb
+</span>
+
+                </p>
+                <p className="flex items-center justify-center sm:justify-start text-xs text-gray-500">Syarat: Follow social media kami</p>
+              </div>
+              
+              <Link
+                href="/products"
+                className="bg-[#d4af37] hover:bg-[#c9a037] text-white! px-5 py-2 rounded-lg font-semibold text-sm transition-colors duration-200 whitespace-nowrap w-full sm:w-auto text-center"
+              >
+                Dapatkan Promo
+              </Link>
             </div>
-            <a href="/products" className="text-[#d4af37] hover:text-[#f0d785] font-medium transition-colors">Lihat semua</a>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3 lg:gap-4">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
           </div>
         </div>
       </section>
 
-      {/* Promo Banner */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div 
-            className="p-8 rounded-2xl shadow-xl" 
-            style={{
-              background: "linear-gradient(135deg, #111111 0%, #000000 100%)",
-              color: "#fff",
-              border: "1px solid rgba(255,255,255,0.1)"
-            }}
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-              <div className="lg:col-span-2">
-                <h3 className="text-2xl font-bold mb-3">Promo Spesial</h3>
-                <p className="text-lg opacity-90 leading-relaxed">
-                  Diskon hingga 30% untuk koleksi pilihan. Waktu terbatas!
-                </p>
-              </div>
-              <div className="lg:text-end mt-6 lg:mt-0">
-                <SocialButtons 
-                  size="md"
-                  layout="vertical"
-                  shopeeText="Beli di Shopee"
-                  whatsappText="Chat WhatsApp"
-                />
-              </div>
-            </div>
-          </div>
+      {/* Bestseller Products */}
+      <section className="py-16">
+  <div className="container mx-auto px-4">
+    <div className="flex justify-between items-end mb-4 sm:mb-6 lg:mb-8">
+      <div>
+        <div className="text-xs sm:text-sm font-semibold text-[#d4af37] mb-2">
+          Bestseller
         </div>
-      </section>
+
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-0 text-gray-900">
+          Produk Terlaris
+        </h2>
+      </div>
+
+      <a
+        href="/products"
+        className="text-xs sm:text-sm md:text-base text-[#d4af37] hover:text-[#f0d785] font-medium transition-colors"
+      >
+        Lihat semua
+      </a>
+    </div>
+
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3 lg:gap-4">
+      {featuredProducts.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* FAQ */}
       <FAQ />
