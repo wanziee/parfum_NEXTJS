@@ -59,15 +59,19 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex-1 text-center sm:text-left">
                 <div className="flex items-center justify-center sm:justify-start gap-3 mb-2">
-                  <h3 className="text-lg font-bold text-gray-900">Promo Imlek & Valentine</h3>
+                  <h3 className="text-lg font-bold text-gray-900">Promo Ramadhan Spesial</h3>
                 </div>
                 <p className="text-sm flex items-center justify-center sm:justify-start text-gray-600 mb-1">
 <span className="font-semibold mr-1">
-  35ml + gratis 10ml
+  35ml + 10ml extra
+</span>
++
+<span className="font-semibold mx-1">
+  paper bag + tasbih digital
 </span>
 hanya
 <span className="font-bold text-[#d4af37] ml-1">
-  99rb
+  120rb
 </span>
 
                 </p>

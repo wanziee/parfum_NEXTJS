@@ -11,14 +11,14 @@ export default function ProductsPage() {
           <div 
             className="relative overflow-hidden shadow-2xl "
             style={{
-              backgroundImage: "url('/images/promo-banner2.jpg'), linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%)",
+              backgroundImage: "url('/images/promo-banner2.jpg'), linear-gradient(135deg, #062e03 0%, #0a3d08 50%, #062e03 100%)",
               backgroundSize: "cover, cover",
               backgroundPosition: "center, center",
               minHeight: "320px",
             }}
           >
             {/* Professional Overlay */}
-            <div className="absolute inset-0 bg-linear-to-r from-slate-900/90 via-slate-800/75 to-slate-900/90"></div>
+            <div className="absolute inset-0 bg-linear-to-r from-green-950/85 via-green-900/75 to-green-950/85"></div>
             
             <div className="relative z-10 p-8 md:p-16 h-full flex items-center">
               <div className="w-full max-w-7xl mx-auto">
@@ -26,37 +26,41 @@ export default function ProductsPage() {
                   {/* Left Side - Main Content */}
                   <div className="w-full lg:w-3/5 text-center lg:text-left space-y-6">
                     {/* Main Offer */}
-                    <div className="space-y-2">
-                      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                        BELI 35ml
+                    <div className="space-y-4">
+                      <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                        PROMO RAMADHAN SPESIAL
                       </h1>
-                      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#d4af37] leading-tight">
-                        GRATIS 10ml
-                      </h1>
-                      <div className="mt-4">
-                        <p className="text-3xl md:text-4xl lg:text-5xl font-black text-white">
-                          HANYA 99K
+                      <div className="space-y-3">
+                        <p className="text-2xl md:text-3xl lg:text-4xl font-bold text-white">
+                          35ML + 10ML EXTRA
+                        </p>
+                        <p className="text-lg md:text-xl lg:text-2xl font-semibold text-[#d4af37]">
+                          + PAPER BAG + TASBIH DIGITAL
+                        </p>
+                        <p className="text-3xl md:text-4xl lg:text-5xl font-black text-[#d4af37] mt-4">
+                          HANYA 120K
                         </p>
                       </div>
                     </div>
                     
                     {/* Simple Note */}
                     <p className="text-lg text-white/90 font-medium">
-                      Promo Special Valentine & Imlek
+                      Promo Spesial Ramadhan
                     </p>
                   </div>
                   
                   {/* Right Side - Simple Info */}
                   <div className="w-full lg:w-2/5">
                     <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center">
-                      <p className="text-white text-lg mb-2">Promo spesial untuk semua pembelian produk 35ml (termasuk best seller)</p>
-                      <p className="text-[#d4af37] text-2xl font-bold">35ml + 10ml</p>
-                      <p className="text-white text-xl mt-2">Rp 99.000</p>
+                      <p className="text-white text-lg mb-2">Promo spesial Ramadhan untuk semua pembelian produk 35ml (termasuk best seller)</p>
+                      <p className="text-[#d4af37] text-2xl font-bold">35ml + 10ml Extra</p>
+                      <p className="text-white text-xl mt-2">Rp 120.000</p>
                       <div className="mt-4 pt-4 border-t border-white/20">
                         <p className="text-white/80 text-xs">✨ Berlaku untuk semua varian parfum</p>
-                        <p className="text-white/80 text-xs">🎉 Periode promo Valentine & Imlek</p>
+                        <p className="text-white/80 text-xs">🎉 Periode promo Ramadhan</p>
                         <p className="text-white/80 text-xs">📱 Follow semua sosial media kami</p>
                         <p className="text-white/80 text-xs">📸 Kirim bukti follow saat order via WA</p>
+                        <p className="text-white/80 text-xs">🎁 Gratis paper bag cantik + tasbih digital</p>
                         <p className="text-white/60 text-xs mt-2 italic">*Konfirmasi dengan admin untuk detail promo saat pembelian produk</p>
                       </div>
                     </div>

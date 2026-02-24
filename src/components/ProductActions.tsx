@@ -50,7 +50,7 @@ export default function ProductActions({ productName, price, shopeeLink, product
   };
 
   const handleWhatsAppClick = () => {
-    const message = `*Chelsea Dewa Store Parfume*\n\n🎉 PROMO SPESIAL VALENTINE & IMLEK 🎉\n🔥 BELI 35ml GRATIS 10ml HANYA 99K 🔥\n\nHalo Kak, saya tertarik dengan produk:\n\nProduk: ${productName}\nHarga: ${price} (belum termasuk ongkir)\n\n🎁 *INFO PROMO BERLAKU:* 🎁\n• Setiap pembelian produk 35ml dapat gratis 10ml\n• Harga khusus promo: Rp 99.000\n• Berlaku untuk semua varian parfum\n• Periode promo: Valentine & Imlek\n• Gratis ongkir minimal pembelian tertentu\n\nMohon informasikan ketersediaan stok, konfirmasi promo, dan detail produknya. Terima kasih!`;
+    const message = `*Chelsea Dewa Store Parfume*\n\n🎉 PROMO RAMADHAN SPESIAL 🎉\n🔥 HARGA NORMAL 120K + 10ML PARFUME EXTRA + PAPER BAG CANTIK + TASBIH DIGITAL 🔥\n\nHalo Kak, saya tertarik dengan produk:\n\nProduk: ${productName}\nHarga: ${price} (belum termasuk ongkir)\n\n🎁 *INFO PROMO RAMADHAN:* 🎁\n• Setiap pembelian produk 35ml dapat gratis 10ml parfume extra\n• Gratis paper bag cantik\n• Bonus tasbih digital\n• Harga normal: Rp 120.000\n• Berlaku untuk semua varian parfum\n• Periode promo Ramadhan\n• Gratis ongkir minimal pembelian tertentu\n\nMohon informasikan ketersediaan stok, konfirmasi promo, dan detail produknya. Terima kasih!`;
     const whatsappUrl = `https://wa.me/6282162724324?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
