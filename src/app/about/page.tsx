@@ -107,31 +107,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-12 md:py-16 lg:py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#d4af37] mb-1 md:mb-2">5000+</div>
-                <div className="text-gray-600 font-medium text-sm md:text-base">Pelanggan Puas</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#d4af37] mb-1 md:mb-2">100+</div>
-                <div className="text-gray-600 font-medium text-sm md:text-base">Varian Parfum</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#d4af37] mb-1 md:mb-2">50+</div>
-                <div className="text-gray-600 font-medium text-sm md:text-base">Brand Ternama</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#d4af37] mb-1 md:mb-2">4.9/5</div>
-                <div className="text-gray-600 font-medium text-sm md:text-base">Rating Pelanggan</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Contact Info Section */}
       <section id="contact-info" className="py-12 md:py-16 lg:py-20 bg-gray-50">

@@ -42,6 +42,7 @@ export default function Home() {
                   layout="horizontal"
                   shopeeText="Beli di Shopee"
                   whatsappText="Chat WhatsApp"
+                  tiktokText="Beli di TikTok"
                 />
               </div>
             </div>

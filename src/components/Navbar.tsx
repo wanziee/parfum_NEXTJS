@@ -41,7 +41,7 @@ export default function Navbar() {
             <img 
               src="/images/logo.png" 
               alt="Chelsea Dewa Store Parfume Logo" 
-              className="h-12 w-auto transition-all duration-300 group-hover:scale-105"
+              className="h-17 w-auto transition-all duration-300 group-hover:scale-105"
             />
           </Link>
 

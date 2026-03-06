@@ -3,8 +3,10 @@ import Image from 'next/image';
 interface SocialButtonsProps {
   shopeeUrl?: string;
   whatsappUrl?: string;
+  tiktokUrl?: string;
   shopeeText?: string;
   whatsappText?: string;
+  tiktokText?: string;
   size?: 'sm' | 'md' | 'lg';
   layout?: 'horizontal' | 'vertical';
 }
@@ -12,8 +14,10 @@ interface SocialButtonsProps {
 export default function SocialButtons({
   shopeeUrl = "https://shopee.co.id/chelseadewastoreparfume?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnkUYt0uWEKZ6w1ZYq-8JucoTGSoRVZwTFtyEwpWC3n9I-oPj_vvjEHHLZ3bk_aem_ZOhs0z5Ogwtw-R-ORD3MAg",
   whatsappUrl = "https://wa.me/6282162724324?text=*Chelsea%20Dewa%20Store%20Parfume*%0A%0AHalo%20Kak%2C%20saya%20ingin%20bertanya%20mengenai%20produk%20parfum.%20Mohon%20informasikan%20katalog%20dan%20promo%20terbaru.%20Harga%20yang%20tercantum%20belum%20termasuk%20ongkir.%20Terima%20kasih",
+  tiktokUrl = "https://www.tiktok.com/@chelseaamoradewaunited?_r=1&_t=ZS-94TAePy71dt",
   shopeeText = "Beli di Shopee",
   whatsappText = "Chat WhatsApp",
+  tiktokText = "Follow TikTok",
   size = 'md',
   layout = 'horizontal'
 }: SocialButtonsProps) {
@@ -88,6 +92,33 @@ className={`
       >
         <Image src="/images/icons/whatsapp.png" alt="WhatsApp" width={16} height={16} className={`${iconSizes[size]} mr-2 text-white shrink-0`} />
         <span className="text-white font-medium">{whatsappText}</span>
+      </a>
+
+      {/* TikTok Button */}
+      <a
+        href={tiktokUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+className={`
+  inline-flex items-center justify-center
+  ${sizeClasses[size]}
+  bg-[#000000] hover:bg-[#1a1a1a]
+  text-white font-semibold
+  rounded-lg
+  transition-all duration-200 ease-out
+  hover:brightness-110
+  transform hover:scale-105 active:scale-95
+  shadow-md hover:shadow-lg
+  border border-gray-700 hover:border-gray-600
+  focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2
+  tracking-tight
+`}
+
+
+        title="Follow kami di TikTok untuk update terbaru"
+      >
+        <Image src="/images/icons/tiktok.png" alt="TikTok" width={16} height={16} className={`${iconSizes[size]} mr-2 text-white shrink-0`} />
+        <span className="text-white font-medium">{tiktokText}</span>
       </a>
     </div>
   );

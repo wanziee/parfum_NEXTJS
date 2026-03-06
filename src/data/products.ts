@@ -88,7 +88,7 @@ export const products: Product[] = [
     size: ["35ml", "50ml"],
     availability: {
       "35ml": true,
-      "50ml": true
+      "50ml": false
     },
     rating: 4.7,
     reviews: 178,
@@ -118,7 +118,7 @@ export const products: Product[] = [
     size: ["35ml", "50ml"],
     availability: {
       "35ml": true,
-      "50ml": true
+      "50ml": false
     },
     rating: 4.8,
     reviews: 245,
@@ -148,7 +148,7 @@ export const products: Product[] = [
     size: ["35ml", "50ml"],
     availability: {
       "35ml": true,
-      "50ml": true
+      "50ml": false
     },
     rating: 4.6,
     reviews: 134,
@@ -236,7 +236,7 @@ export const products: Product[] = [
     size: ["35ml", "50ml"],
     availability: {
       "35ml": true,
-      "50ml": true
+      "50ml": false,
     },
     rating: 4.8,
     reviews: 289,
