@@ -52,7 +52,7 @@ export const products: Product[] = [
     id: 2,
     name: "Baccarat",
     slug: "baccarat",
-    price: 99000,
+    price: 120000,
     category: "Woody",
     image: "/images/products/baccarat.jpg",
     description: "Aroma yang sangat khas, manis hangat dengan sentuhan woody dan amber yang elegan. Wanginya 'mahal', unik, dan mudah dikenali. Banyak yang bilang ini parfum paling 'auto dipuji'.\n\nMain accords: amber, woody, sweet, warm spicy, aromatic.",
@@ -64,11 +64,11 @@ export const products: Product[] = [
     rating: 4.8,
     reviews: 203,
     prices: {
-      "35ml": 99000,
+      "35ml": 120000,
       "50ml": 165000
     },
     originalPrices: {
-      "35ml": 99000,
+      "35ml": 120000,
       "50ml": 165000
     },
     hasDiscount: {
@@ -171,7 +171,7 @@ export const products: Product[] = [
     id: 6,
     name: "Aigner Black",
     slug: "aigner-black",
-    price: 99000,
+    price: 120000,
     category: "Woody",
     image: "/images/products/aigner-black.jpg",
     description: "Wangi maskulin yang dewasa dan classy. Perpaduan woody dan leather yang bikin kesan mahal dan berkarakter kuat.\n\nMain accords: woody, aromatic, leather, fresh spicy.",
@@ -183,11 +183,11 @@ export const products: Product[] = [
     rating: 4.7,
     reviews: 167,
     prices: {
-      "35ml": 99000,
+      "35ml": 120000,
       "50ml": 165000
     },
     originalPrices: {
-      "35ml": 99000,
+      "35ml": 120000,
       "50ml": 165000
     },
     hasDiscount: {
@@ -200,7 +200,7 @@ export const products: Product[] = [
     id: 7,
     name: "bvlgari Extreme",
     slug: "bvlgari-extreme",
-    price: 99000,
+    price: 120000,
     category: "Fresh",
     image: "/images/products/bvlgari-extreme.jpg",
     description: "Wangi citrus yang sangat segar dan bersih. Cocok untuk aktivitas sehari-hari, kerja, atau cuaca panas. Memberikan kesan rapi dan energik.\n\nMain accords: citrus, green, aromatic, woody, fresh spicy.",
@@ -212,11 +212,11 @@ export const products: Product[] = [
     rating: 4.6,
     reviews: 142,
     prices: {
-      "35ml": 99000,
+      "35ml": 120000,
       "50ml": 165000
     },
     originalPrices: {
-      "35ml": 99000,
+      "35ml": 120000,
       "50ml": 165000
     },
     hasDiscount: {
@@ -259,7 +259,7 @@ export const products: Product[] = [
     id: 9,
     name: "Omnia Amethyste",
     slug: "omnia-amethyste",
-    price: 99000,
+    price: 120000,
     category: "Floral",
     image: "/images/products/omnia-amethyste.jpg",
     description: "Wangi floral yang lembut dan feminin. Memberikan kesan anggun, kalem, dan sangat nyaman dipakai sehari-hari.\n\nMain accords: floral, green, powdery, musky, fresh.",
@@ -271,11 +271,11 @@ export const products: Product[] = [
     rating: 4.5,
     reviews: 118,
     prices: {
-      "35ml": 99000,
+      "35ml": 120000,
       "50ml": 165000
     },
     originalPrices: {
-      "35ml": 99000,
+      "35ml": 120000,
       "50ml": 165000
     },
     hasDiscount: {
@@ -288,7 +288,7 @@ export const products: Product[] = [
     id: 10,
     name: "Coco Chanel",
     slug: "coco-chanel",
-    price: 99000,
+    price: 120000,
     category: "Woody",
     image: "/images/products/coco-chanel.jpg",
     description: "Aroma khas wanita elegan dan classy. Wanginya dewasa, mewah, dan sangat berkarakter. Cocok untuk acara formal maupun daily classy look.\n\nMain accords: warm spicy, amber, woody, powdery, sweet.",
@@ -300,11 +300,11 @@ export const products: Product[] = [
     rating: 4.9,
     reviews: 312,
     prices: {
-      "35ml": 99000,
+      "35ml": 120000,
       "50ml": 165000
     },
     originalPrices: {
-      "35ml": 99000,
+      "35ml": 120000,
       "50ml": 165000
     },
     hasDiscount: {
@@ -319,15 +319,15 @@ export const products: Product[] = [
 export const getDefaultPrices = (slug: string) => {
   const pricesMap: { [key: string]: { [key: string]: number } } = {
     "ysl-libre": { "35ml": 120000, "50ml": 185000 },
-    "baccarat": { "35ml": 99000, "50ml": 165000 },
+    "baccarat": { "35ml": 120000, "50ml": 165000 },
     "black-opium": { "35ml": 120000, "50ml": 185000 },
     "dior-sauvage": { "35ml": 120000, "50ml": 185000 },
     "212-vip": { "35ml": 120000, "50ml": 185000 },
-    "aigner-black": { "35ml": 99000, "50ml": 165000 },
-    "bvlgari-extreme": { "35ml": 99000, "50ml": 165000 },
+    "aigner-black": { "35ml": 120000, "50ml": 165000 },
+    "bvlgari-extreme": { "35ml": 120000, "50ml": 165000 },
     "giorgio-armani-acqua-di-gio": { "35ml": 120000, "50ml": 185000 },
-    "omnia-amethyste": { "35ml": 99000, "50ml": 165000 },
-    "coco-chanel": { "35ml": 99000, "50ml": 165000 }
+    "omnia-amethyste": { "35ml": 120000, "50ml": 165000 },
+    "coco-chanel": { "35ml": 120000, "50ml": 165000 }
   };
   return pricesMap[slug] || {};
 };
